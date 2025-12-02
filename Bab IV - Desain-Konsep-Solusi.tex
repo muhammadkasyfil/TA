@@ -1,0 +1,115 @@
+% ==========================================
+% BAB IV DESAIN KONSEP SOLUSI
+% ==========================================
+\chapter{DESAIN KONSEP SOLUSI}
+\label{chap:desain-konsep-solusi}
+
+\section{Desain Solusi}
+Bab ini menyajikan penjelasan rinci mengenai rancangan sistem yang diusulkan dalam penelitian, yaitu desain modul \textit{packer} dan \textit{dropper spyware} dengan mode \textit{stealth} yang akan digunakan untuk menguji kapabilitas deteksi \textit{anti-malware} dalam lingkungan terisolasi. Sebagai pedoman metodologis, kerangka \textit{Design Research Methodology} (DRM) yang telah diuraikan pada Bab I diadaptasi dalam bab ini, khususnya pada fase \textit{Prescriptive Study}. Oleh karena itu, seluruh proses desain dalam bab ini diarahkan untuk menciptakan artefak yang tidak hanya memiliki fungsi teknis eksekusi \textit{malware}, tetapi juga memenuhi kebutuhan pengujian parameter keamanan (seperti \textit{evasion} dan \textit{anti-analysis}) yang telah ditetapkan pada Bab III.
+
+\section{Tahapan Desain}
+Proses desain dalam penelitian ini mencakup perancangan artefak berupa prototipe \textit{Dropper Spyware Mode Stealth}. Pengembangan solusi dilakukan dengan mengikuti pedoman DRM untuk memastikan riset dilakukan secara efektif dan efisien. Fokus utama pada tahap ini adalah merjemahkan kebutuhan fungsional (FR) menjadi spesifikasi teknis dan arsitektur sistem yang siap diimplementasikan. Aktivitas utama dalam tahap desain ini mencakup:
+\begin{itemize}
+  \item Perumusan Persyaratan: Mengacu pada Kebutuhan Fungsional (FR) dan Nonfungsional (NFR) terkait \textit{stealth} dan \textit{fileless execution}.
+  \item Desain Arsitektur: Merancang hubungan logis antara modul \textit{Packer}, \textit{Dropper}, dan \textit{Payload} sesuai dengan alur eksekusi yang direncanakan.
+  \item Desain Komponen Detail: Merinci mekanisme teknik \textit{evasion} (seperti \textit{unpacking}, \textit{deobfuscation}, \textit{anti-VM}) dan eksekusi memori.
+  \item Desain Lingkungan Uji: Menentukan spesifikasi sistem target (korban) dan server (penyerang) dalam lingkungan terkontrol.
+\end{itemize}
+
+\subsection{Desain Artefak \textit{Dropper}}
+Artefak yang dikembangkan berfokus pada mekanisme \textit{dropper} yang bertanggung jawab untuk memastikan \textit{spyware} berhasil melewati pertahanan awal (\textit{Initial Access}) dan dieksekusi tanpa terdeteksi (\textit{Execution}). Desain modul ini secara langsung menargetkan kelemahan deteksi berbasis tanda tangan (\textit{signature-based}) dan analisis perilaku (\textit{behavioral}) pada \textit{anti-malware}.
+
+\subsubsection{Arsitektur Modul dan Fungsi \textit{Evasion}}
+Modul \textit{dropper} dirancang sebagai kesatuan komponen yang terdiri dari lapisan pelindung (\textit{Packer}) dan logika eksekusi (\textit{Dropper Logic}). Tabel \ref{tab:komponen-dropper} menjabarkan komponen-komponen tersebut beserta justifikasinya terhadap analisis masalah.
+
+\begin{table}[H]
+  \centering
+  \caption{Komponen Modul \textit{Dropper}\label{tab:komponen-dropper}}
+  \begin{tabular}{p{3cm}p{3cm}p{4.5cm}p{3.5cm}}
+    \toprule
+    \textbf{Komponen Modul} & \textbf{Bahasa/Teknologi} & \textbf{Fungsi Utama dalam \textit{Evasion}} & \textbf{Justifikasi Pengujian (CTQ)} \\
+    \midrule
+    \textit{Packer} (Pelindung) & Rust & Melakukan \textit{packing} (kompresi) dan enkripsi terhadap berkas \textit{dropper} untuk mengubah \textit{signature} statis dan menyembunyikan logika program. & Menyerang CTQ-01 (Celah \textit{Signature-Evasion}). \\
+    \textit{Dropper Engine} (Logika Utama) & Rust & Menjalankan alur logika: \textit{Unpack}, \textit{Deobfuscate}, \textit{Anti-Analysis Check}, dan manajemen memori. & Menyerang CTQ-02 (\textit{Obfuscation}) \& CTQ-03 (Deteksi Perilaku). \\
+    \textit{Payload Handler} & Rust / Windows API & Mengunduh \textit{payload} dari server (jika tidak tersedia lokal) dan menyimpannya langsung ke memori (\textit{fileless}) tanpa menulis ke disk. & Menyerang CTQ-03 (Celah \textit{In-Memory}). \\
+    Server (C2) & Python / Go & Menyediakan \textit{payload} (seperti \textit{shellcode}) yang akan diunduh oleh \textit{dropper} jika validasi lingkungan berhasil. & Pendukung skenario \textit{Downloader-based} (FR-A5). \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\FloatBarrier
+
+\subsubsection{Mekanisme Alur Logika \textit{Dropper}}
+Desain alur logika \textit{dropper} dirancang untuk memprioritaskan keamanan \textit{payload}. \textit{Dropper} tidak akan mengeksekusi kode berbahaya jika mendeteksi lingkungan analisis. Mekanisme ini dirancang berdasarkan diagram alir yang diusulkan, dengan rincian sebagai berikut:
+\begin{enumerate}
+  \item \textbf{Inisialisasi \& \textit{Unpacking}.} Saat dieksekusi oleh target, \textit{dropper} melakukan proses \textit{unpacking} (2.1) dan \textit{deobfuscation} (2.2) di memori untuk menerjemahkan kode yang disamarkan menjadi instruksi yang dapat dijalankan.
+  \item \textbf{Validasi Lingkungan (\textit{Anti-Analysis}).} Sebelum melakukan aksi berbahaya, \textit{dropper} melakukan pengecekan (2.3) terhadap indikator \textit{Virtual Machine} (VM) atau \textit{Debugger}. Jika terdeteksi, proses akan berhenti untuk menghindari analisis.
+  \item \textbf{Manajemen \textit{Payload}.} Sistem mengecek keberadaan \textit{payload} internal (2.4). Jika tidak ada, \textit{dropper} mengunduh \textit{payload} dari Server (2.5).
+  \item \textbf{\textit{Fileless Execution}.} \textit{Payload} yang didapatkan (baik internal maupun unduhan) disimpan langsung ke alokasi memori (2.6) dan dieksekusi (2.7) menggunakan teknik \textit{process injection} atau \textit{thread execution}, memastikan tidak ada jejak fisik (file) yang tertinggal di \textit{hard drive}.
+\end{enumerate}
+
+\section{Rancangan Lingkungan Pengujian}
+Lingkungan pengujian dirancang untuk menciptakan kondisi yang terkontrol (\textit{controlled environment}) dan relevan, sesuai dengan kebutuhan non-fungsional NFR-E1. Lingkungan ini harus terisolasi dari jaringan publik untuk keamanan, namun tetap mensimulasikan interaksi jaringan antara korban dan penyerang.
+
+\section{Spesifikasi Mesin Uji}
+Pengujian akan dilakukan menggunakan dua entitas utama: Mesin Target (Korban) dan Mesin Server (Penyerang) yang berjalan di atas virtualisasi terisolasi (\textit{Host-Only Network}). Spesifikasi rinci disajikan pada Tabel \ref{tab:spesifikasi-uji}.
+
+\begin{table}[H]
+  \centering
+  \caption{Spesifikasi lingkungan uji\label{tab:spesifikasi-uji}}
+  \begin{tabular}{p{3cm}p{5cm}p{5cm}}
+    \toprule
+    \textbf{Komponen} & \textbf{Spesifikasi Teknis} & \textbf{Justifikasi Desain} \\
+    \midrule
+    Target (Korban) & OS: Windows 10 / 11 (x64)\\ RAM: 4 GB\\ Jaringan: \textit{Host-Only} & Merepresentasikan lingkungan pengguna umum yang menjadi target \textit{spyware}. Windows dipilih karena target utama \textit{malware} berbasis .exe. \\
+    Server (Penyerang) & OS: Linux (Kali/Ubuntu)\\ \textit{Service}: HTTP/TCP \textit{Listener} & Berfungsi sebagai penyedia \textit{payload} (untuk proses 2.5) dan penerima koneksi balik (\textit{reverse shell}) dari \textit{dropper}. \\
+    Alat Monitoring & Sysmon, Wireshark, Process Hacker & Digunakan untuk memvalidasi apakah \textit{dropper} benar-benar berjalan di memori (tidak menyentuh disk) dan memantau lalu lintas jaringan. \\
+    \textit{Anti-Malware} & Berbagai produk komersial (Brand A, B, C, D, E) & Objek evaluasi utama untuk mengukur efektivitas deteksi terhadap desain \textit{dropper}. \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\FloatBarrier
+
+\section{Hasil Desain}
+Hasil akhir dari tahapan perancangan sistem ini adalah arsitektur teknis dan alur logika eksekusi \textit{dropper} yang telah disesuaikan dengan karakteristik bahasa pemrograman Rust dan teknik \textit{fileless}. Desain ini diilustrasikan dalam bentuk diagram alir proses yang menggambarkan siklus hidup \textit{dropper} mulai dari inisialisasi hingga eksekusi \textit{payload}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{image/flow.png}
+  \caption{Diagram alir eksekusi \textit{dropper spyware} mode \textit{stealth}\label{fig:flow-dropper}}
+\end{figure}
+
+\subsection{Tahap Inisialisasi dan Dekripsi (Proses 2.1 \& 2.2)}
+Ketika target mengeksekusi berkas \textit{dropper}, program tidak langsung menjalankan kode berbahaya. 
+\begin{enumerate}
+  \item \textbf{2.1 \textit{Unpack}:} \textit{Dropper} yang dikemas (\textit{packed}) akan melakukan \textit{self-extraction} di memori. Proses ini bertujuan untuk mengembalikan bentuk asli kode biner yang telah dikompresi atau dienkripsi saat pembuatan (\textit{compile time}).
+  \item \textbf{2.2 \textit{Deobfuscasi}:} Setelah di-\textit{unpack}, \textit{dropper} melakukan \textit{deobfuscasi} terhadap string dan konfigurasi internal. Teknik ini digunakan untuk menyembunyikan \textit{Import Address Table} (IAT) dan string sensitif (seperti alamat IP Server C2 atau nama fungsi API Windows) dari analisis statis \textit{anti-malware}. Penggunaan bahasa Rust membantu mempersulit proses \textit{reverse engineering} pada tahap ini karena struktur binernya yang kompleks.
+\end{enumerate}
+
+\subsection{Tahap Validasi Lingkungan / \textit{Anti-Analysis} (Proses 2.3)}
+Tahap ini merupakan gerbang keamanan bagi \textit{malware} untuk melindungi dirinya sendiri dari analisis peneliti keamanan atau \textit{sandbox} otomatis.
+\begin{itemize}
+  \item \textbf{2.3 Cek VM \& Debug:} Sebelum memuat \textit{payload}, \textit{dropper} memindai lingkungan eksekusi untuk mencari tanda-tanda keberadaan \textit{debugger} (misalnya memeriksa flag \textit{IsDebuggerPresent}) atau artefak mesin virtual (seperti \textit{registry keys} VMware/VirtualBox atau instruksi CPUID tertentu).
+  \item \textbf{Logika Keputusan:}
+  \begin{itemize}
+    \item Jika lingkungan terdeteksi sebagai VM atau \textit{Debug Environment}, \textit{dropper} akan melakukan terminasi dini atau menjalankan kode \textit{benign} (tidak berbahaya) untuk mengecoh analisis (menghasilkan \textit{False Negative}).
+    \item Jika lingkungan terkonfirmasi sebagai \textit{Target Fisik}, proses berlanjut ke tahap manajemen \textit{payload}.
+  \end{itemize}
+\end{itemize}
+
+\subsection{Tahap Manajemen \textit{Payload} (Proses 2.4 \& 2.5)}
+Desain ini mendukung fleksibilitas antara membawa \textit{payload} sendiri (\textit{dropper}) atau mengunduhnya (\textit{downloader}).
+\begin{enumerate}
+  \item \textbf{2.4 Cek \textit{Payload}:} Sistem memeriksa apakah \textit{payload} utama (\textit{spyware}) sudah tertanam secara terenkripsi di dalam biner \textit{dropper}.
+  \item \textbf{2.5 \textit{Download Payload} (Kondisional):} Jika \textit{payload} tidak ditemukan secara internal (skenario \textit{Payload Tidak Ada}), \textit{dropper} akan menginisiasi koneksi HTTP/TCP ke Server penyerang untuk mengunduh \textit{payload} terbaru secara aman ke memori.
+\end{enumerate}
+
+\subsection{Tahap Eksekusi \textit{Fileless} (Proses 2.6 \& 2.7)}
+Ini adalah inti dari mekanisme \textit{stealth} yang dirancang untuk menghindari deteksi \textit{file-scanning}.
+\begin{enumerate}
+  \item \textbf{2.6 Simpan \textit{Payload} ke Memori:} \textit{Payload} (baik dari internal maupun unduhan) didekripsi dan disimpan langsung ke dalam alokasi memori volatil (RAM). Tidak ada penulisan berkas (\textit{file write}) ke \textit{hard disk} pada tahap ini, memitigasi risiko deteksi forensik berbasis disk.
+  \item \textbf{2.7 Jalankan \textit{Payload} pada Memori:} Menggunakan teknik \textit{Process Injection} atau pembuatan \textit{thread} jarak jauh, \textit{dropper} mengeksekusi kode \textit{payload} langsung dari lokasi memori tersebut. Setelah \textit{payload} aktif (Status: Sukses), proses \textit{dropper} utama akan menutup diri (\textit{self-terminate}), meninggalkan \textit{payload} berjalan secara independen dan tersembunyi di dalam proses sistem yang sah.
+\end{enumerate}
+
+\FloatBarrier

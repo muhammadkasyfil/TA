@@ -1,0 +1,64 @@
+% ==========================================
+% BAB I PENDAHULUAN
+% ==========================================
+\chapter{PENDAHULUAN}
+
+% --- Latar Belakang ---
+\section{Latar Belakang}
+
+Perkembangan teknologi informasi yang pesat turut membawa peningkatan ancaman keamanan siber, terutama berupa malware yang semakin canggih dan sulit dideteksi \parencite{sudhakar2020}. Salah satu varian berbahaya adalah \textit{spyware}, malware yang secara diam-diam mengumpulkan data sensitif korban \parencite{reddyvari2024}. Dalam rantai infeksi \textit{spyware} modern, \textit{dropper} memainkan peran penting sebagai komponen pengantar dan eksekutor malware. \textit{Dropper} bertugas untuk mendistribusikan, membuka kemasan (\textit{unpack}), serta menjalankan \textit{payload} \textit{spyware} dalam sistem target dengan teknik yang mampu menghindari deteksi oleh \textit{anti malware} konvensional \parencite{chatzoglou2023,elghaly2024}.
+
+\textit{Dropper} saat ini tidak hanya berfungsi sebagai pengantar biasa, tetapi juga dilengkapi fitur \textit{anti-debugging}, \textit{anti-virtual machine}, serta teknik \textit{stealth} lainnya yang membuatnya sangat tahan terhadap mekanisme deteksi dan pencegahan \parencite{elghaly2024,chatzoglou2023,kerkour2021}. \textit{Dropper} juga bisa bersifat \textit{fileless}, beroperasi langsung di memori tanpa meninggalkan jejak file yang bisa dipindai, sehingga menjadi tantangan besar bagi sistem keamanan \parencite{sudhakar2020,elghaly2024}. Keberhasilan \textit{dropper} menentukan efektifitas infeksi \textit{spyware} secara keseluruhan, termasuk kemampuan \textit{persistensi} dan pencurian data \parencite{kerkour2021,kareem2024}.
+
+Penelitian ini bertujuan mengkaji kapabilitas \textit{anti spyware} dalam mendeteksi dan menangkal \textit{dropper spyware} baru yang menerapkan teknik evasi lanjutan tersebut. Kajian ini penting untuk mengetahui sejauh mana solusi keamanan saat ini mampu menghadapi ancaman yang semakin kompleks, dan memberikan dasar bagi pengembangan metode pertahanan yang lebih adaptif dan tangguh \parencite{chatzoglou2023,reddyvari2024}.
+
+Dengan mengacu pada studi dan analisis malware dari berbagai literatur terkini, termasuk teknik \textit{stealth} dan evasi \textit{dropper} dalam malware \textit{fileless}, penelitian ini juga akan menguji efektivitas berbagai produk \textit{anti spyware} komersial terhadap varian \textit{dropper} tersebut dalam lingkungan simulasi yang realistis \parencite{sudhakar2020,elghaly2024,chatzoglou2023,kareem2024}.
+
+% --- Rumusan Masalah ---
+\section{Rumusan Masalah}
+Berdasarkan latar belakang di atas, rumusan masalah penelitian difokuskan pada \textit{dropper spyware} mode \textit{stealth} sebagai mekanisme serangan tahap awal (\textit{initial access}). Pertanyaan penelitian yang diajukan adalah:
+\begin{enumerate}
+  \item Seberapa efektif sistem \textit{anti-malware} dan \textit{Endpoint Detection \& Response} (EDR) dalam mendeteksi aktivitas \textit{dropper spyware} mode \textit{stealth} yang berfungsi sebagai \textit{initial access and delivery mechanism} pada lingkungan uji terkontrol?
+  \item Bagaimana pendekatan paling efektif untuk mengembangkan \textit{dropper spyware} \textit{stealth} yang mampu menghindari deteksi \textit{anti-malware} dengan memanfaatkan teknik evasi modern seperti \textit{fileless execution}, \textit{in-memory payload delivery}, dan pemeriksaan \textit{anti-analysis}?
+  \item Bagaimana pengaruh teknik evasi, misalnya \textit{obfuscation}, enkripsi \textit{payload}, \textit{sandbox evasion}, dan deteksi \textit{anti-VM}, terhadap kemampuan deteksi produk \textit{anti-malware} dan EDR komersial saat ini?
+  \item Celah keamanan spesifik apa saja yang muncul pada produk \textit{anti-malware} maupun EDR ketika dihadapkan pada \textit{dropper spyware} kustom yang dirancang dengan teknik penghindaran deteksi terintegrasi?
+\end{enumerate}
+
+% --- Tujuan ---
+\section{Tujuan}
+Secara umum penelitian ini bertujuan mengukur efektivitas sejumlah produk \textit{anti-malware} dan EDR komersial dalam mendeteksi \textit{dropper spyware} mode \textit{stealth} yang bertindak sebagai vektor serangan awal. Tujuan khusus yang hendak dicapai yaitu:
+\begin{enumerate}
+  \item Menganalisis dan mengidentifikasi teknik evasi \textit{dropper spyware} paling efektif untuk menghindari deteksi \textit{anti-malware} dan EDR, mencakup kategori \textit{file-based}, \textit{network-based}, \textit{script-based}, \textit{downloader-based}, serta \textit{non-persistent}.
+  \item Mengembangkan prototipe \textit{dropper spyware} mode \textit{stealth} yang mengintegrasikan teknik evasi modern, seperti \textit{fileless payload delivery}, eksekusi di memori, pemeriksaan \textit{anti-VM}/\textit{anti-debugging}, komunikasi \textit{C2} terenkripsi, dan modul \textit{spyware} aktif.
+  \item Melakukan pengujian komparatif prototipe terhadap beberapa produk \textit{anti-malware} dan EDR terkemuka guna mengamati keberhasilan \textit{payload delivery} serta respons deteksi pada setiap tahap eksekusi.
+  \item Mengidentifikasi celah keamanan dan kelemahan deteksi pada tiap produk, kemudian merumuskan rekomendasi teknis maupun strategis untuk meningkatkan kapabilitas mitigasi serangan \textit{initial access} berbasis \textit{dropper}.
+\end{enumerate}
+
+Kriteria keberhasilan penelitian meliputi: (a) prototipe \textit{dropper} berhasil mengimplementasikan sedikitnya tiga teknik evasi terintegrasi dan terbukti lolos dari deteksi minimal pada satu produk \textit{anti-malware} yang diuji; serta (b) hasil eksperimen menunjukkan perbedaan signifikan antar produk dalam mendeteksi \textit{dropper} dan mengungkap tahap eksekusi yang paling sulit diawasi.
+
+% --- Batasan Masalah ---
+\section{Batasan Masalah}
+Batasan penelitian dibagi menjadi tiga kategori utama. Pertama, batasan umum menekankan bahwa seluruh eksperimen dilaksanakan di lingkungan simulasi terkontrol dengan skenario yang telah ditetapkan; ruang lingkup hanya sampai pemastian \textit{payload} berhasil dijalankan pada sistem target tanpa mengevaluasi dampak pasca-infeksi. Kedua, batasan desain pengujian berfokus pada \textit{dropper spyware} mode \textit{stealth} yang memanfaatkan teknik \textit{fileless execution}, \textit{in-memory payload}, serta pemeriksaan \textit{anti-analysis}; metode distribusi lain seperti \textit{worm} atau \textit{supply-chain attack} tidak dianalisis. Ketiga, batasan implementasi menegaskan bahwa pengujian hanya menilai kemampuan deteksi dan respons \textit{anti-malware}/EDR hingga tahap \textit{payload} aktif, tanpa melakukan analisis rinci terhadap \textit{payload} lanjutan atau serangan lanjutan setelah \textit{dropper} selesai bertugas.
+
+% --- Metodologi ---
+\section{Metodologi}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.6\textwidth]{image/drm.png}
+  \caption{Kerangka kerja DRM\label{fig:drm-framework}}
+\end{figure}
+Metodologi penelitian mengacu pada \textit{Design Research Methodology} (DRM) yang diperkenalkan oleh Blessing dan Chakrabarti \parencite{blessing2009}. Kerangka ini dipilih karena menyajikan proses iteratif yang terstruktur untuk merancang sekaligus mengevaluasi artefak teknis.
+
+
+\begin{enumerate}
+  \item \textbf{Research Clarification (RC):} tahap ini mengidentifikasi kesenjangan antara evolusi teknik \textit{dropper} modern dan keterbatasan sistem deteksi. Aktivitasnya meliputi studi literatur terhadap laporan industri keamanan siber, publikasi akademis mengenai teknik evasi, serta studi kasus serangan \textit{dropper}. Hasil RC berupa rumusan masalah yang terdefinisi jelas dan urgensi penelitian yang berdasar pada bukti mutakhir.
+  \item \textbf{Descriptive Study I (DS-I):} tahap ini menelaah kondisi eksisting melalui analisis karakteristik \textit{dropper} modern dalam \textit{cyber kill chain}. Fokus ada pada \textit{fileless payload delivery}, eksekusi di memori, pemeriksaan \textit{anti-analysis}, \textit{obfuscation} string dan komunikasi \textit{C2} terenkripsi, serta metode distribusi seperti \textit{phishing}, \textit{drive-by download}, dan dokumen berbahaya. DS-I juga menyusun rantai serangan \textit{dropper} dari \textit{initial access} hingga \textit{command-and-control}.
+  \item \textbf{Prescriptive Study (PS):} tahap PS merancang dan mengembangkan prototipe \textit{dropper spyware} mode \textit{stealth} menggunakan bahasa Rust. Prototipe terdiri atas modul \textit{payload builder}, manajemen \textit{in-memory execution}, pemeriksaan \textit{anti-VM}/\textit{anti-debug}, kanal komunikasi terenkripsi, serta modul \textit{spyware}. Pengujian awal dilakukan secara iteratif untuk memastikan tiap teknik evasi bekerja sesuai spesifikasi.
+  \item \textbf{Descriptive Study II (DS-II):} fase akhir mengevaluasi prototipe melalui eksperimen pada beberapa lingkungan uji dan produk \textit{anti-malware}/EDR komersial. Parameter evaluasi mencakup tahap deteksi atau kelolosan aktivitas \textit{dropper}, keberhasilan \textit{payload delivery} di memori, serta efektivitas masing-masing teknik evasi. Data kuantitatif berupa \textit{detection rate} dan \textit{evasion rate} dibandingkan antar produk, sedangkan data kualitatif seperti pola perilaku \textit{dropper} dan pesan kesalahan dianalisis untuk memahami penyebab lolosnya deteksi. Temuan DS-II menjadi dasar rekomendasi peningkatan mekanisme deteksi dan arah penelitian lanjutan untuk memperkuat pertahanan terhadap \textit{initial access} berbasis \textit{dropper}.
+\end{enumerate}
+
+
+
+
+
+

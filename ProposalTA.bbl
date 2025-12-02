@@ -1,0 +1,257 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{cms/global//global/global}
+    \entry{blessing2009}{book}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=861d0429e0f26bd3d90f47c55d1b2c39}{%
+           family={Blessing},
+           familyi={B\bibinitperiod},
+           given={Lucienne\bibnamedelima T.M.},
+           giveni={L\bibinitperiod\bibinitdelim T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e5d508518a35c7d540748740a84b813c}{%
+           family={Chakrabarti},
+           familyi={C\bibinitperiod},
+           given={Amaresh},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{616af8955e55b43ef83aeb2bb00b3f72}
+      \strng{fullhash}{616af8955e55b43ef83aeb2bb00b3f72}
+      \strng{bibnamehash}{616af8955e55b43ef83aeb2bb00b3f72}
+      \strng{authorbibnamehash}{616af8955e55b43ef83aeb2bb00b3f72}
+      \strng{authornamehash}{616af8955e55b43ef83aeb2bb00b3f72}
+      \strng{authorfullhash}{616af8955e55b43ef83aeb2bb00b3f72}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{DRM, a Design Research Methodology}
+      \field{year}{2009}
+    \endentry
+    \entry{chatzoglou2023}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=acd18a327d3504adfd07f2b8b380744b}{%
+           family={Chatzoglou},
+           familyi={C\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a9f05db11c81d5c9c3e9e6fdb86036d2}{%
+           family={Karopoulos},
+           familyi={K\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6b99ba8b70e3fb0738d02ab55f61d88b}{%
+           family={Kambourakis},
+           familyi={K\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a9cb1c040bd1916298bc6063f3dff430}{%
+           family={Tsiatsikas},
+           familyi={T\bibinitperiod},
+           given={Z.},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{280f7a6dc1affb2c971f17be1be1a4f2}
+      \strng{fullhash}{f9c9ba776d7f07786eb136db3f5e2af4}
+      \strng{bibnamehash}{f9c9ba776d7f07786eb136db3f5e2af4}
+      \strng{authorbibnamehash}{f9c9ba776d7f07786eb136db3f5e2af4}
+      \strng{authornamehash}{280f7a6dc1affb2c971f17be1be1a4f2}
+      \strng{authorfullhash}{f9c9ba776d7f07786eb136db3f5e2af4}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of TrustBus'23}
+      \field{title}{Bypassing Antivirus Detection: Old-School Malware, New Tricks}
+      \field{year}{2023}
+    \endentry
+    \entry{elghaly2024}{thesis}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=8a6ab35d1dfb5162cbabb6e405fc86aa}{%
+           family={Elghaly},
+           familyi={E\bibinitperiod},
+           given={Y.\bibnamedelimi M.},
+           giveni={Y\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {University of East London}%
+      }
+      \strng{namehash}{8a6ab35d1dfb5162cbabb6e405fc86aa}
+      \strng{fullhash}{8a6ab35d1dfb5162cbabb6e405fc86aa}
+      \strng{bibnamehash}{8a6ab35d1dfb5162cbabb6e405fc86aa}
+      \strng{authorbibnamehash}{8a6ab35d1dfb5162cbabb6e405fc86aa}
+      \strng{authornamehash}{8a6ab35d1dfb5162cbabb6e405fc86aa}
+      \strng{authorfullhash}{8a6ab35d1dfb5162cbabb6e405fc86aa}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Stealth in Plain Sight: The Hidden Threat of PowerShell Fileless Malware and Its Evasion of Modern EDRs \& AVs}
+      \field{year}{2024}
+    \endentry
+    \entry{kareem2024}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d0b0216d34c09fe2e5b5c758f5680e78}{%
+           family={Kareem},
+           familyi={K\bibinitperiod},
+           given={K.M.},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d0b0216d34c09fe2e5b5c758f5680e78}
+      \strng{fullhash}{d0b0216d34c09fe2e5b5c758f5680e78}
+      \strng{bibnamehash}{d0b0216d34c09fe2e5b5c758f5680e78}
+      \strng{authorbibnamehash}{d0b0216d34c09fe2e5b5c758f5680e78}
+      \strng{authornamehash}{d0b0216d34c09fe2e5b5c758f5680e78}
+      \strng{authorfullhash}{d0b0216d34c09fe2e5b5c758f5680e78}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{title}{A Comprehensive Analysis of Pegasus Spyware and Its Implications for Digital Privacy and Security}
+      \field{year}{2024}
+    \endentry
+    \entry{kerkour2021}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=0fa474a6b050cead169c5d8789340309}{%
+           family={Kerkour},
+           familyi={K\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{0fa474a6b050cead169c5d8789340309}
+      \strng{fullhash}{0fa474a6b050cead169c5d8789340309}
+      \strng{bibnamehash}{0fa474a6b050cead169c5d8789340309}
+      \strng{authorbibnamehash}{0fa474a6b050cead169c5d8789340309}
+      \strng{authornamehash}{0fa474a6b050cead169c5d8789340309}
+      \strng{authorfullhash}{0fa474a6b050cead169c5d8789340309}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Black Hat Rust: Applied Offensive Security with the Rust Programming Language}
+      \field{year}{2021}
+    \endentry
+    \entry{reddyvari2024}{article}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=0966798fe4ae82efa3f139ec58a34fbf}{%
+           family={Reddyvari},
+           familyi={R\bibinitperiod},
+           given={V.},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7fda65501067c95cf6ea91d16b75bd55}{%
+           family={Rao},
+           familyi={R\bibinitperiod},
+           given={M.U.M.},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ed0f0dc54645e736747866b7a8de8e49}{%
+           family={Reddy},
+           familyi={R\bibinitperiod},
+           given={S.S.D.},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=114ac709b402bf4bf058c5f3b9e31001}{%
+           family={Reddy},
+           familyi={R\bibinitperiod},
+           given={K.R.S.},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a89943d935a354962cb63e2eaa70d3ab}{%
+           family={Nayak},
+           familyi={N\bibinitperiod},
+           given={B.M.},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{4d2d4726d24164039a9b8680de2b3c01}
+      \strng{fullhash}{ff266a53d8384eda80dcd05757c0023d}
+      \strng{bibnamehash}{ff266a53d8384eda80dcd05757c0023d}
+      \strng{authorbibnamehash}{ff266a53d8384eda80dcd05757c0023d}
+      \strng{authornamehash}{4d2d4726d24164039a9b8680de2b3c01}
+      \strng{authorfullhash}{ff266a53d8384eda80dcd05757c0023d}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{International Journal of Engineering Research \& Technology (IJERT)}
+      \field{number}{3}
+      \field{title}{A Review on Spyware Creation and Detection}
+      \field{volume}{13}
+      \field{year}{2024}
+    \endentry
+    \entry{sudhakar2020}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=18ab22c5f726a60874c2aae158bc99ab}{%
+           family={Sudhakar},
+           familyi={S\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a545bd13ef1e9c1672bfb284155fc1ad}{%
+           family={Kumar},
+           familyi={K\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{e5a9ac7b0e00fcec4874e18b87c56276}
+      \strng{fullhash}{e5a9ac7b0e00fcec4874e18b87c56276}
+      \strng{bibnamehash}{e5a9ac7b0e00fcec4874e18b87c56276}
+      \strng{authorbibnamehash}{e5a9ac7b0e00fcec4874e18b87c56276}
+      \strng{authornamehash}{e5a9ac7b0e00fcec4874e18b87c56276}
+      \strng{authorfullhash}{e5a9ac7b0e00fcec4874e18b87c56276}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{Cybersecurity}
+      \field{number}{1}
+      \field{title}{An Emerging Threat: Fileless Malware – A Survey and Research Challenges}
+      \field{volume}{3}
+      \field{year}{2020}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

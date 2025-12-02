@@ -1,0 +1,104 @@
+% ==========================================
+% BAB V RENCANA SELANJUTNYA
+% ==========================================
+\chapter{RENCANA SELANJUTNYA}
+\label{chap:rencana-selanjutnya}
+
+Bab ini menjabarkan langkah-langkah sistematis yang akan dilakukan setelah tahap perancangan selesai. Rencana ini mencakup strategi implementasi teknis dari desain \textit{dropper}, metode evaluasi untuk mengukur keberhasilan teknik \textit{evasion}, serta analisis risiko yang mungkin timbul selama proses penelitian. Seluruh tahapan ini disusun berdasarkan metodologi \textit{Design Research Methodology} (DRM), khususnya pada fase \textit{Descriptive Study II} (DS-II), guna memastikan validitas hasil pengujian terhadap produk \textit{anti-malware} dan EDR komersial.
+
+\section{Rencana Implementasi}
+Berdasarkan desain solusi pada Bab IV, implementasi \textit{dropper spyware} akan dilakukan secara modular menggunakan bahasa pemrograman Rust. Pendekatan modular dipilih untuk memudahkan \textit{debugging} dan isolasi fitur \textit{stealth} tertentu. Proses implementasi dibagi menjadi tiga fase utama: Pengembangan Komponen, Integrasi Sistem, dan Penyiapan Lingkungan.
+
+\subsection{Pengembangan Komponen \textit{Dropper}}
+Implementasi teknis akan difokuskan pada penerjemahan desain arsitektur menjadi kode program yang dapat dieksekusi.
+\begin{itemize}
+  \item \textbf{Implementasi Modul Enkripsi dan \textit{Packing}.} Fase ini melibatkan pembuatan \textit{builder} yang bertugas mengenkripsi \textit{payload} (seperti \textit{shellcode benign}) menggunakan algoritma AES-256 atau XOR \textit{chaining}. \textit{Builder} ini juga akan menyisipkan \textit{junk data} dan melakukan manipulasi \textit{header} biner untuk mengubah \textit{signature} statis berkas, sesuai strategi \textit{evasion} statis yang dirancang.
+  \item \textbf{Implementasi Mekanisme \textit{Anti-Analysis}.} Kode Rust dikembangkan untuk memanggil Windows API guna mendeteksi keberadaan lingkungan analisis.
+  \begin{itemize}
+    \item \textit{Anti-Debugger:} Implementasi pengecekan \textit{Process Environment Block} (PEB) dan penggunaan fungsi \textit{IsDebuggerPresent}.
+    \item \textit{Anti-VM/Sandbox:} Implementasi pengecekan artefak \textit{registry}, \textit{driver} (misal \textit{vboxguest.sys}), dan instruksi CPUID untuk mendeteksi virtualisasi. Jika terdeteksi, \textit{dropper} diprogram untuk melakukan terminasi dini (\textit{fail-safe}).
+  \end{itemize}
+  \item \textbf{Implementasi Eksekusi \textit{Fileless}.} Kode ditulis untuk mengalokasikan memori secara dinamis (\textit{VirtualAllocEx}), menulis \textit{payload} yang telah didekripsi ke memori tersebut (\textit{WriteProcessMemory}), dan mengeksekusinya menggunakan \textit{thread} baru (\textit{CreateRemoteThread}) tanpa pernah menulis berkas berbahaya ke disk (non-\textit{persistent}).
+\end{itemize}
+
+\subsection{Lingkungan Pengembangan}
+Tabel \ref{tab:lingkungan-implementasi} merangkum perangkat lunak dan alat yang akan digunakan selama fase implementasi untuk memastikan \textit{dropper} dapat dibangun dan diuji fungsionalitas dasarnya.
+
+\begin{table}[H]
+  \centering
+  \caption{Spesifikasi lingkungan implementasi\label{tab:lingkungan-implementasi}}
+  \begin{tabular}{p{3cm}p{4cm}p{5.5cm}}
+    \toprule
+    \textbf{Komponen} & \textbf{Alat/Teknologi} & \textbf{Fungsi} \\
+    \midrule
+    Bahasa Pemrograman & Rust (Nightly Toolchain) & Pengembangan \textit{core logic dropper} dan manipulasi memori tingkat rendah. \\
+    Kriptografi & \textit{Crate} \texttt{aes}, \texttt{rand} & Enkripsi \textit{payload} dan pembuatan data acak (\textit{junk data}). \\
+    Windows API & \textit{Crate} \texttt{winapi} / \texttt{windows-sys} & Interaksi dengan sistem operasi untuk injeksi memori dan pengecekan lingkungan. \\
+    \textit{Payload Generator} & Metasploit (\texttt{msfvenom}) & Membuat sampel \textit{shellcode} (misal: \texttt{reverse\_tcp} atau \texttt{calc.exe}) untuk diinjeksi. \\
+    \textit{Debugger} & x64dbg / Process Hacker & Verifikasi manual bahwa \textit{payload} berjalan di memori dan tidak bocor ke disk. \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\FloatBarrier
+
+\section{Rencana Evaluasi}
+Evaluasi bertujuan untuk menjawab rumusan masalah mengenai efektivitas deteksi \textit{anti-malware} terhadap teknik \textit{evasion} yang diterapkan. Evaluasi dilakukan dalam lingkungan terkontrol (\textit{isolated lab}) untuk mencegah penyebaran \textit{malware}.
+
+\subsection{Konfigurasi Sistem Pengujian}
+Pengujian menggunakan topologi jaringan \textit{Host-Only} yang terdiri dari dua mesin virtual:
+\begin{itemize}
+  \item \textbf{Mesin Target (Korban):} Windows 10/11 yang dipasang berbagai produk \textit{Anti-Virus} (AV) dan EDR secara bergantian.
+  \item \textbf{Mesin Penyerang (C2):} Linux (Kali/Ubuntu) yang menjalankan \textit{listener} (Netcat/Metasploit) untuk menerima koneksi dari \textit{dropper}.
+\end{itemize}
+
+\subsection{Skenario Pengujian}
+Pengujian dilakukan melalui tiga skenario utama untuk menguji lapisan pertahanan yang berbeda:
+\begin{enumerate}
+  \item \textbf{Skenario A: Deteksi Statis (Pre-\textit{Execution}).} Tujuan: mengukur kemampuan AV mendeteksi \textit{dropper} sebelum dijalankan (saat berkas berada di disk). Prosedur: memindai berkas \textit{dropper} menggunakan fitur \textit{on-demand scan} pada AV dan mengunggah \textit{hash} ke \textit{multi-engine scanner} (jika aman secara etis/diizinkan). Harapan: \textit{dropper} tidak terdeteksi karena enkripsi dan \textit{packing}.
+  \item \textbf{Skenario B: Deteksi Perilaku (\textit{On-Execution}).} Tujuan: mengukur kemampuan fitur \textit{Real-time Protection} atau \textit{Heuristic Analysis} dalam mendeteksi aktivitas injeksi memori. Prosedur: mengeksekusi \textit{dropper} di mesin target; memantau apakah koneksi ke server C2 berhasil terbentuk (sukses) atau \textit{dropper} dikarantina/dihentikan oleh AV (gagal). Harapan: \textit{dropper} berhasil menyuntikkan \textit{payload} dan \textit{self-terminate} tanpa memicu alarm.
+  \item \textbf{Skenario C: Efektivitas \textit{Anti-Analisis}.} Tujuan: memastikan \textit{dropper} tidak berjalan di lingkungan analisis otomatis (\textit{sandbox}). Prosedur: mengeksekusi \textit{dropper} di lingkungan yang sengaja dibuat ``lemah'' (misal: ada \textit{debugger} aktif atau \textit{tools} pemantau terlihat). Harapan: \textit{dropper} mendeteksi lingkungan tersebut dan segera berhenti tanpa mendekripsi \textit{payload}.
+\end{enumerate}
+
+\subsection{Metrik Evaluasi}
+Hasil pengujian diukur menggunakan metrik kuantitatif dan kualitatif sebagaimana dijabarkan pada Tabel \ref{tab:metrik-evaluasi}.
+
+\begin{table}[H]
+  \centering
+  \caption{Metrik evaluasi\label{tab:metrik-evaluasi}}
+  \begin{tabular}{p{3cm}p{2.5cm}p{4.5cm}p{3.5cm}}
+    \toprule
+    \textbf{Metrik} & \textbf{Tipe} & \textbf{Deskripsi} & \textbf{Target Keberhasilan} \\
+    \midrule
+    \textit{Detection Rate} (DR) & Kuantitatif & Persentase produk AV/EDR yang berhasil mendeteksi \textit{dropper} pada Skenario A dan B. & DR rendah (< 20\% produk mendeteksi). \\
+    \textit{Payload Success Rate} & Kuantitatif & Persentase keberhasilan \textit{payload} aktif (koneksi C2 terbentuk) dari total percobaan eksekusi. & 100\% pada lingkungan tanpa proteksi, > 50\% pada lingkungan berproteksi. \\
+    \textit{Anti-Analysis Efficacy} & Kualitatif & Kemampuan \textit{dropper} membedakan lingkungan target asli vs. lingkungan analisis. & \textit{Dropper} tidak berjalan saat didiagnosis (\textit{False Negative} bagi analis). \\
+    \textit{Forensic Footprint} & Kualitatif & Jejak yang tertinggal di disk atau \textit{registry} setelah eksekusi. & Minimal/nihil (sesuai prinsip \textit{fileless}). \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\FloatBarrier
+
+\section{Analisis Risiko}
+Mengingat penelitian ini melibatkan pembuatan artefak yang bersifat ofensif (\textit{offensive tool}), terdapat beberapa risiko teknis dan etis yang perlu dimitigasi.
+
+\begin{table}[H]
+  \centering
+  \caption{Analisis risiko dan mitigasi\label{tab:analisis-risiko}}
+  \begin{tabular}{p{3.2cm}p{4cm}p{4.8cm}}
+    \toprule
+    \textbf{Risiko} & \textbf{Dampak} & \textbf{Strategi Mitigasi} \\
+    \midrule
+    Kebocoran Sampel \textit{Malware} & Sampel \textit{dropper} tersebar ke jaringan publik dan disalahgunakan. & Pengujian dilakukan ketat di jaringan \textit{Host-Only} tanpa akses internet. \textit{Source code} tidak dipublikasikan secara terbuka (repositori privat). \\
+    Kerusakan Sistem Uji & \textit{Dropper} menyebabkan \textit{Blue Screen of Death} (BSOD) atau korupsi memori pada mesin target. & Menggunakan \textit{snapshot} VM sebelum setiap pengujian agar sistem dapat dipulihkan cepat (\textit{Revert}). Menggunakan \textit{payload benign} (\texttt{calc.exe}) untuk uji awal. \\
+    \textit{Update} \textit{Signature} AV & Produk AV memperbarui basis data di tengah penelitian, menyebabkan inkonsistensi hasil. & Mematikan fitur \textit{auto-update} selama pengambilan data atau mencatat versi basis data virus secara presisi untuk setiap pengujian. \\
+    \textit{False Positive} pada Desain & Mekanisme \textit{Anti-VM} terlalu agresif sehingga \textit{dropper} tidak jalan di VM pengujian penulis sendiri. & Implementasi \textit{whitelist} khusus atau \textit{flag} kompilasi (misal: \texttt{cargo build --features "debug\_mode"}) untuk mematikan fitur \textit{anti-VM} saat pengembangan. \\
+    Keterbatasan Lisensi EDR & Tidak semua produk EDR \textit{enterprise} dapat diakses untuk pengujian mahasiswa. & Menggunakan versi \textit{trial}, versi \textit{consumer} dengan \textit{engine} setara, atau fokus pada produk yang menyediakan lisensi akademik/evaluasi. \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\FloatBarrier
+
+Melalui perencanaan implementasi yang terstruktur dan evaluasi yang ketat, penelitian ini diharapkan mampu memberikan data empiris mengenai celah keamanan pada sistem deteksi modern terhadap ancaman \textit{dropper} berbasis Rust.
