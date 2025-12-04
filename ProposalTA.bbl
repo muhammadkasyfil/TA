@@ -19,6 +19,50 @@
 
 \refsection{0}
   \datalist[entry]{cms/global//global/global}
+    \entry{ainslie2023}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=788c21b89d154a630caed7d0a2d3603f}{%
+           family={Ainslie},
+           familyi={A\bibinitperiod},
+           given={Scott},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bde74d3bb6b78ad4999e3b40694a2ab2}{%
+           family={Thompson},
+           familyi={T\bibinitperiod},
+           given={Dean},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=45c49a939bbce37dcccedc6b72ad3da8}{%
+           family={Maynard},
+           familyi={M\bibinitperiod},
+           given={Sean},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fd4ca3c23ef9fc35c649e703438580db}{%
+           family={Ahmad},
+           familyi={A\bibinitperiod},
+           given={Atif},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{9254e0b3cfaa4980e16b9fcbfd7f8463}
+      \strng{fullhash}{70e29447d14656d853a97c9fb5589d58}
+      \strng{bibnamehash}{70e29447d14656d853a97c9fb5589d58}
+      \strng{authorbibnamehash}{70e29447d14656d853a97c9fb5589d58}
+      \strng{authornamehash}{9254e0b3cfaa4980e16b9fcbfd7f8463}
+      \strng{authorfullhash}{70e29447d14656d853a97c9fb5589d58}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{Computers \& Security}
+      \field{title}{Cyber-threat Intelligence for Security Decision-Making: A Review and Research Agenda for Practice}
+      \field{volume}{132}
+      \field{year}{2023}
+    \endentry
     \entry{blessing2009}{book}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=861d0429e0f26bd3d90f47c55d1b2c39}{%
@@ -165,6 +209,37 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Black Hat Rust: Applied Offensive Security with the Rust Programming Language}
+      \field{year}{2021}
+    \endentry
+    \entry{koutsokostas2021}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=8306afb82ad47e0b5cffd9b6f4185f52}{%
+           family={Koutsokostas},
+           familyi={K\bibinitperiod},
+           given={Vasilios},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fb25a705ecb4db067d80a1f025858e97}{%
+           family={Patsakis},
+           familyi={P\bibinitperiod},
+           given={Constantinos},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{9410d254ca3e2705e27020c8e82bbb5b}
+      \strng{fullhash}{9410d254ca3e2705e27020c8e82bbb5b}
+      \strng{bibnamehash}{9410d254ca3e2705e27020c8e82bbb5b}
+      \strng{authorbibnamehash}{9410d254ca3e2705e27020c8e82bbb5b}
+      \strng{authornamehash}{9410d254ca3e2705e27020c8e82bbb5b}
+      \strng{authorfullhash}{9410d254ca3e2705e27020c8e82bbb5b}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{arXiv preprint arXiv:2105.00565}
+      \field{title}{Python and Malware: Developing Stealth and Evasive Malware Without Obfuscation}
       \field{year}{2021}
     \endentry
     \entry{reddyvari2024}{article}{}

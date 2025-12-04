@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 24.1) (preloaded format=xelatex 2025.10.25)  4 DEC 2025 21:11
+This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 24.1) (preloaded format=xelatex 2025.10.25)  4 DEC 2025 23:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1256,9 +1256,16 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 Bab II.
 [7
 
-] [8] [9] [10]) (Bab III - Analisis-Masalah.tex [11]
+]
+Overfull \hbox (11.1661pt too wide) in paragraph at lines 19--20
+[]\TU/TimesNewRoman(0)/m/n/12 Mekanisme infeksi \TU/TimesNewRoman(0)/m/it/12 sp
+yware \TU/TimesNewRoman(0)/m/n/12 modern semakin canggih, memanfaatkan \TU/Time
+sNewRoman(0)/m/it/12 zero-click explo-
+ []
+
+[8] [9] [10] [11] [12] [13]) (Bab III - Analisis-Masalah.tex [14]
 Bab III.
-[12
+[15
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 26--26
@@ -1365,14 +1372,14 @@ Overfull \hbox (18.92815pt too wide) in paragraph at lines 24--33
  [][] 
  []
 
-[13]
+[16]
 Overfull \hbox (3.92117pt too wide) in paragraph at lines 44--45
 []\TU/TimesNewRoman(0)/b/it/12 Research Clarification \TU/TimesNewRoman(0)/b/n/
 12 (RC). \TU/TimesNewRoman(0)/m/n/12 Fokus pada identifikasi masalah utama—adan
 ya
  []
 
-[14]
+[17]
 Underfull \hbox (badness 10000) in paragraph at lines 60--61
 []\TU/TimesNewRoman(0)/b/n/12 Keterkaitan
  []
@@ -1399,17 +1406,17 @@ Overfull \hbox (8.73021pt too wide) in paragraph at lines 84--85
 []\TU/TimesNewRoman(0)/m/n/12 Kompatibilitas| 
  []
 
-[15] [16]
+[18] [19]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 101.
 
-[17]
+[20]
 Overfull \hbox (171.31186pt too wide) in paragraph at lines 162--171
  [][] 
  []
 
-[18]
+[21]
 Underfull \hbox (badness 10000) in paragraph at lines 198--198
 []\TU/TimesNewRoman(0)/m/it/12 Detection Rate
  []
@@ -1486,9 +1493,9 @@ Overfull \hbox (25.23767pt too wide) in paragraph at lines 194--204
  [][] 
  []
 
-[19]) (Bab IV - Desain-Konsep-Solusi.tex [20]
+[22]) (Bab IV - Desain-Konsep-Solusi.tex [23]
 Bab IV.
-[21
+[24
 
 ]
 Overfull \hbox (0.40945pt too wide) in paragraph at lines 20--21
@@ -1592,7 +1599,7 @@ Overfull \hbox (47.99997pt too wide) in paragraph at lines 28--38
  [][] 
  []
 
-[22] [23]
+[25] [26]
 Underfull \hbox (badness 4531) in paragraph at lines 64--64
 []\TU/TimesNewRoman(0)/m/n/12 Jaringan: \TU/TimesNewRoman(0)/m/it/12 Host-
  []
@@ -1654,12 +1661,12 @@ Overfull \hbox (7.54723pt too wide) in paragraph at lines 60--70
  [][] 
  []
 
-[24]
+[27]
 File: image/flow.png Graphic file (type bmp)
 <image/flow.png>
- [25] [26]) (Bab V - Rencana-Selanjutnya.tex [27]
+ [28] [29]) (Bab V - Rencana-Selanjutnya.tex [30]
 Bab V.
-[28
+[31
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 34--34
@@ -1684,7 +1691,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 37--38
 an(0)/m/n/12 atau
  []
 
-[29]
+[32]
 Overfull \hbox (1.25125pt too wide) in paragraph at lines 52--53
 []\TU/TimesNewRoman(0)/b/n/12 Mesin Penyerang (C2): \TU/TimesNewRoman(0)/m/n/12
  Linux (Kali/Ubuntu) yang menjalankan \TU/TimesNewRoman(0)/m/it/12 listener \TU
@@ -1782,7 +1789,7 @@ Overfull \hbox (33.77359pt too wide) in paragraph at lines 69--79
  [][] 
  []
 
-[30]
+[33]
 Underfull \hbox (badness 1142) in paragraph at lines 93--93
 []\TU/TimesNewRoman(0)/m/n/12 Sampel \TU/TimesNewRoman(0)/m/it/12 dropper \TU/T
 imesNewRoman(0)/m/n/12 terse-
@@ -1907,12 +1914,17 @@ Underfull \hbox (badness 2951) in paragraph at lines 97--98
 \TU/TimesNewRoman(0)/m/n/12 produk yang menyediakan
  []
 
-[31]) [32]
+[34]) [35]
+Overfull \hbox (12.85976pt too wide) in paragraph at lines 402--402
+\TU/TimesNewRoman(0)/m/n/12 threat Intelligence for Security Decision-Making: A
+ Review and Research Agenda
+ []
+
 
 Package caption Warning: Unused \captionsetup[lstlisting] on input line 382.
 See the caption package documentation for explanation.
 
-[33
+[36
 
 
 ] (ProposalTA.aux)
@@ -1925,7 +1937,7 @@ L3 programming layer <2024-01-04>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `ProposalTA.out' has not changed.
-(rerunfilecheck)             Checksum: 4818B050B155025E73DEEC5347819142;11068.
+(rerunfilecheck)             Checksum: B8875CE886C3B1629E8C1052B2699F2A;10958.
 
 Package biblatex Warning: Please rerun LaTeX.
 
@@ -1934,12 +1946,12 @@ Package logreq Info: Writing requests to 'ProposalTA.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 31302 strings out of 409617
- 613560 string characters out of 5774012
- 1956713 words of memory out of 5000000
- 53058 multiletter control sequences out of 15000+600000
+ 31339 strings out of 409617
+ 614177 string characters out of 5774012
+ 1956866 words of memory out of 5000000
+ 53095 multiletter control sequences out of 15000+600000
  563298 words of font info for 83 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 79i,11n,93p,1223b,6485s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 79i,11n,93p,1229b,6485s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on ProposalTA.pdf (40 pages).
+Output written on ProposalTA.pdf (43 pages).
