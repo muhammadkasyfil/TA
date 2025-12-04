@@ -18,24 +18,6 @@
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
 \addvspace {10\p@ }
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
@@ -66,7 +48,7 @@
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {table}{\numberline {III.1}{\ignorespaces Ringkasan kesenjangan desain \textit {dropper} dan arah solusi}}{11}{table.caption.4}%
+\contentsline {table}{\numberline {III.1}{\ignorespaces Ringkasan kesenjangan desain \textit {dropper} dan arah solusi}}{13}{table.caption.4}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
@@ -83,8 +65,8 @@
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {table}{\numberline {III.2}{\ignorespaces Persyaratan fungsional (Functional Requirements)}}{13}{table.caption.5}%
-\contentsline {table}{\numberline {III.3}{\ignorespaces Persyaratan non-fungsional (Non-Functional Requirements)}}{14}{table.caption.6}%
+\contentsline {table}{\numberline {III.2}{\ignorespaces Persyaratan fungsional (Functional Requirements)}}{15}{table.caption.5}%
+\contentsline {table}{\numberline {III.3}{\ignorespaces Persyaratan non-fungsional (Non-Functional Requirements)}}{16}{table.caption.6}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
@@ -105,16 +87,16 @@
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {table}{\numberline {III.4}{\ignorespaces Bobot kriteria hasil metode EWM}}{16}{table.caption.7}%
-\contentsline {table}{\numberline {III.5}{\ignorespaces Skor komposit akhir alternatif solusi}}{16}{table.caption.8}%
-\contentsline {table}{\numberline {III.6}{\ignorespaces Metrik evaluasi dan alat ukur}}{18}{table.caption.9}%
+\contentsline {table}{\numberline {III.4}{\ignorespaces Bobot kriteria hasil metode EWM}}{18}{table.caption.7}%
+\contentsline {table}{\numberline {III.5}{\ignorespaces Skor komposit akhir alternatif solusi}}{18}{table.caption.8}%
+\contentsline {table}{\numberline {III.6}{\ignorespaces Metrik evaluasi dan alat ukur}}{20}{table.caption.9}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {IV.1}{\ignorespaces Komponen Modul \textit {Dropper}}}{21}{table.caption.10}%
-\contentsline {table}{\numberline {IV.2}{\ignorespaces Spesifikasi lingkungan uji}}{23}{table.caption.11}%
+\contentsline {table}{\numberline {IV.1}{\ignorespaces Komponen Modul \textit {Dropper}}}{23}{table.caption.10}%
+\contentsline {table}{\numberline {IV.2}{\ignorespaces Spesifikasi lingkungan uji}}{25}{table.caption.11}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {V.1}{\ignorespaces Spesifikasi lingkungan implementasi}}{27}{table.caption.13}%
-\contentsline {table}{\numberline {V.2}{\ignorespaces Metrik evaluasi}}{29}{table.caption.14}%
-\contentsline {table}{\numberline {V.3}{\ignorespaces Analisis risiko dan mitigasi}}{30}{table.caption.15}%
+\contentsline {table}{\numberline {V.1}{\ignorespaces Spesifikasi lingkungan implementasi}}{29}{table.caption.13}%
+\contentsline {table}{\numberline {V.2}{\ignorespaces Metrik evaluasi}}{31}{table.caption.14}%
+\contentsline {table}{\numberline {V.3}{\ignorespaces Analisis risiko dan mitigasi}}{32}{table.caption.15}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 

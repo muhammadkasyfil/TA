@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 24.1) (preloaded format=xelatex 2025.10.25)  25 NOV 2025 23:14
+This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 24.1) (preloaded format=xelatex 2025.10.25)  4 DEC 2025 21:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1221,6 +1221,13 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 ] (Bab I - Pendahuluan.tex
 Bab I.
+
+Overfull \hbox (3.1915pt too wide) in paragraph at lines 13--14
+\TU/TimesNewRoman(0)/m/it/12 malware \TU/TimesNewRoman(0)/m/n/12 tradisional ma
+sih mengandalkan pencocokan tanda tangan (\TU/TimesNewRoman(0)/m/it/12 signatur
+e\TU/TimesNewRoman(0)/m/n/12 ), yang
+ []
+
 [1
 
 
@@ -1233,19 +1240,25 @@ Roman(0)/m/n/12 ).
  []
 
 [2]
+Overfull \hbox (2.8743pt too wide) in paragraph at lines 40--41
+[]\TU/TimesNewRoman(0)/m/n/12 Hasil eksperimen menunjukkan perbedaan signifikan
+ antar produk dalam men-
+ []
+
+[3]
 File: image/drm.png Graphic file (type bmp)
 <image/drm.png>
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[3]) (Bab II - Studi-Literatur.tex [4]
+[4] [5]) (Bab II - Studi-Literatur.tex [6]
 Bab II.
-[5
+[7
 
-] [6] [7] [8]) (Bab III - Analisis-Masalah.tex [9]
+] [8] [9] [10]) (Bab III - Analisis-Masalah.tex [11]
 Bab III.
-[10
+[12
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 26--26
@@ -1352,14 +1365,14 @@ Overfull \hbox (18.92815pt too wide) in paragraph at lines 24--33
  [][] 
  []
 
-[11]
+[13]
 Overfull \hbox (3.92117pt too wide) in paragraph at lines 44--45
 []\TU/TimesNewRoman(0)/b/it/12 Research Clarification \TU/TimesNewRoman(0)/b/n/
 12 (RC). \TU/TimesNewRoman(0)/m/n/12 Fokus pada identifikasi masalah utama—adan
 ya
  []
 
-[12]
+[14]
 Underfull \hbox (badness 10000) in paragraph at lines 60--61
 []\TU/TimesNewRoman(0)/b/n/12 Keterkaitan
  []
@@ -1386,17 +1399,17 @@ Overfull \hbox (8.73021pt too wide) in paragraph at lines 84--85
 []\TU/TimesNewRoman(0)/m/n/12 Kompatibilitas| 
  []
 
-[13] [14]
+[15] [16]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 101.
 
-[15]
+[17]
 Overfull \hbox (171.31186pt too wide) in paragraph at lines 162--171
  [][] 
  []
 
-[16]
+[18]
 Underfull \hbox (badness 10000) in paragraph at lines 198--198
 []\TU/TimesNewRoman(0)/m/it/12 Detection Rate
  []
@@ -1473,9 +1486,9 @@ Overfull \hbox (25.23767pt too wide) in paragraph at lines 194--204
  [][] 
  []
 
-[17]) (Bab IV - Desain-Konsep-Solusi.tex [18]
+[19]) (Bab IV - Desain-Konsep-Solusi.tex [20]
 Bab IV.
-[19
+[21
 
 ]
 Overfull \hbox (0.40945pt too wide) in paragraph at lines 20--21
@@ -1579,7 +1592,7 @@ Overfull \hbox (47.99997pt too wide) in paragraph at lines 28--38
  [][] 
  []
 
-[20] [21]
+[22] [23]
 Underfull \hbox (badness 4531) in paragraph at lines 64--64
 []\TU/TimesNewRoman(0)/m/n/12 Jaringan: \TU/TimesNewRoman(0)/m/it/12 Host-
  []
@@ -1641,12 +1654,12 @@ Overfull \hbox (7.54723pt too wide) in paragraph at lines 60--70
  [][] 
  []
 
-[22]
+[24]
 File: image/flow.png Graphic file (type bmp)
 <image/flow.png>
- [23] [24]) (Bab V - Rencana-Selanjutnya.tex [25]
+ [25] [26]) (Bab V - Rencana-Selanjutnya.tex [27]
 Bab V.
-[26
+[28
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 34--34
@@ -1671,7 +1684,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 37--38
 an(0)/m/n/12 atau
  []
 
-[27]
+[29]
 Overfull \hbox (1.25125pt too wide) in paragraph at lines 52--53
 []\TU/TimesNewRoman(0)/b/n/12 Mesin Penyerang (C2): \TU/TimesNewRoman(0)/m/n/12
  Linux (Kali/Ubuntu) yang menjalankan \TU/TimesNewRoman(0)/m/it/12 listener \TU
@@ -1769,7 +1782,7 @@ Overfull \hbox (33.77359pt too wide) in paragraph at lines 69--79
  [][] 
  []
 
-[28]
+[30]
 Underfull \hbox (badness 1142) in paragraph at lines 93--93
 []\TU/TimesNewRoman(0)/m/n/12 Sampel \TU/TimesNewRoman(0)/m/it/12 dropper \TU/T
 imesNewRoman(0)/m/n/12 terse-
@@ -1894,12 +1907,12 @@ Underfull \hbox (badness 2951) in paragraph at lines 97--98
 \TU/TimesNewRoman(0)/m/n/12 produk yang menyediakan
  []
 
-[29]) [30]
+[31]) [32]
 
 Package caption Warning: Unused \captionsetup[lstlisting] on input line 382.
 See the caption package documentation for explanation.
 
-[31
+[33
 
 
 ] (ProposalTA.aux)
@@ -1921,12 +1934,12 @@ Package logreq Info: Writing requests to 'ProposalTA.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 31311 strings out of 409617
- 613659 string characters out of 5774012
- 1956749 words of memory out of 5000000
- 53067 multiletter control sequences out of 15000+600000
+ 31302 strings out of 409617
+ 613560 string characters out of 5774012
+ 1956713 words of memory out of 5000000
+ 53058 multiletter control sequences out of 15000+600000
  563298 words of font info for 83 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 79i,11n,93p,1201b,6485s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 79i,11n,93p,1223b,6485s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on ProposalTA.pdf (38 pages).
+Output written on ProposalTA.pdf (40 pages).
