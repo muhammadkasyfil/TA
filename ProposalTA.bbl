@@ -187,30 +187,6 @@
       \field{title}{A Comprehensive Analysis of Pegasus Spyware and Its Implications for Digital Privacy and Security}
       \field{year}{2024}
     \endentry
-    \entry{kerkour2021}{book}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=0fa474a6b050cead169c5d8789340309}{%
-           family={Kerkour},
-           familyi={K\bibinitperiod},
-           given={S.},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{0fa474a6b050cead169c5d8789340309}
-      \strng{fullhash}{0fa474a6b050cead169c5d8789340309}
-      \strng{bibnamehash}{0fa474a6b050cead169c5d8789340309}
-      \strng{authorbibnamehash}{0fa474a6b050cead169c5d8789340309}
-      \strng{authornamehash}{0fa474a6b050cead169c5d8789340309}
-      \strng{authorfullhash}{0fa474a6b050cead169c5d8789340309}
-      \field{sortinit}{K}
-      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Black Hat Rust: Applied Offensive Security with the Rust Programming Language}
-      \field{year}{2021}
-    \endentry
     \entry{koutsokostas2021}{article}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=8306afb82ad47e0b5cffd9b6f4185f52}{%

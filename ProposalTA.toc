@@ -103,100 +103,41 @@
 \babel@toc {indonesian}{}\relax 
 \contentsline {chapter}{\numberline {III}ANALISIS MASALAH}{15}{chapter.3}%
 \contentsline {section}{\numberline {III.1}Analisis Kondisi dan Kesenjangan (Current State and Gap Analysis)}{15}{section.3.1}%
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
 \contentsline {subsection}{\numberline {III.1.1}Keterbatasan Deteksi Konvensional}{15}{subsection.3.1.1}%
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
 \contentsline {subsection}{\numberline {III.1.2}Analisis Kesenjangan Desain \textit {Dropper} (Gap Analysis)}{16}{subsection.3.1.2}%
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\contentsline {section}{\numberline {III.2}Metodologi Penelitian: Design Research Methodology (DRM)}{17}{section.3.2}%
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\contentsline {section}{\numberline {III.3}Persyaratan Fungsional dan Non-Fungsional}{18}{section.3.3}%
-\contentsline {section}{\numberline {III.4}Desain Keputusan dan Solusi yang Diusulkan}{19}{section.3.4}%
-\contentsline {subsection}{\numberline {III.4.1}Alternatif Solusi}{19}{subsection.3.4.1}%
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\contentsline {subsection}{\numberline {III.4.2}Analisis Penelitian Solusi}{19}{subsection.3.4.2}%
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\contentsline {subsection}{\numberline {III.4.3}Metodologi Penilaian Solusi (Multi-Criteria Decision Analysis)}{20}{subsection.3.4.3}%
-\contentsline {paragraph}{\numberline {III.4.3.0.1}Langkah 1: Normalisasi Matriks Keputusan.}{20}{paragraph.3.4.3.0.1}%
-\contentsline {paragraph}{\numberline {III.4.3.0.2}Langkah 2: Perhitungan Nilai Entropi.}{20}{paragraph.3.4.3.0.2}%
-\contentsline {paragraph}{\numberline {III.4.3.0.3}Langkah 3: Penentuan Bobot Kriteria.}{20}{paragraph.3.4.3.0.3}%
-\contentsline {paragraph}{\numberline {III.4.3.0.4}Langkah 4: Perhitungan Skor Komposit Akhir.}{21}{paragraph.3.4.3.0.4}%
-\contentsline {subsection}{\numberline {III.4.4}Hasil Analisis Penentuan Solusi}{21}{subsection.3.4.4}%
-\contentsline {section}{\numberline {III.5}Rencana Evaluasi (Overview)}{22}{section.3.5}%
-\contentsline {subsection}{\numberline {III.5.1}Skenario Pengujian}{22}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {III.5.2}Metrik dan Alat Evaluasi}{22}{subsection.3.5.2}%
-\contentsline {chapter}{\numberline {IV}DESAIN KONSEP SOLUSI}{24}{chapter.4}%
-\contentsline {section}{\numberline {IV.1}Desain Solusi}{24}{section.4.1}%
-\contentsline {section}{\numberline {IV.2}Tahapan Desain}{24}{section.4.2}%
-\contentsline {subsection}{\numberline {IV.2.1}Desain Artefak \textit {Dropper}}{25}{subsection.4.2.1}%
-\contentsline {subsubsection}{\numberline {IV.2.1.1}Arsitektur Modul dan Fungsi \textit {Evasion}}{25}{subsubsection.4.2.1.1}%
-\contentsline {subsubsection}{\numberline {IV.2.1.2}Mekanisme Alur Logika \textit {Dropper}}{26}{subsubsection.4.2.1.2}%
-\contentsline {section}{\numberline {IV.3}Rancangan Lingkungan Pengujian}{27}{section.4.3}%
-\contentsline {section}{\numberline {IV.4}Spesifikasi Mesin Uji}{27}{section.4.4}%
-\contentsline {section}{\numberline {IV.5}Hasil Desain}{28}{section.4.5}%
-\contentsline {subsection}{\numberline {IV.5.1}Tahap Inisialisasi dan Dekripsi (Proses 2.1 \& 2.2)}{29}{subsection.4.5.1}%
-\contentsline {subsection}{\numberline {IV.5.2}Tahap Validasi Lingkungan / \textit {Anti-Analysis} (Proses 2.3)}{29}{subsection.4.5.2}%
-\contentsline {subsection}{\numberline {IV.5.3}Tahap Manajemen \textit {Payload} (Proses 2.4 \& 2.5)}{30}{subsection.4.5.3}%
-\contentsline {subsection}{\numberline {IV.5.4}Tahap Eksekusi \textit {Fileless} (Proses 2.6 \& 2.7)}{30}{subsection.4.5.4}%
-\contentsline {chapter}{\numberline {V}RENCANA SELANJUTNYA}{31}{chapter.5}%
-\contentsline {section}{\numberline {V.1}Rencana Implementasi}{31}{section.5.1}%
-\contentsline {subsection}{\numberline {V.1.1}Pengembangan Komponen \textit {Dropper}}{31}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {V.1.2}Lingkungan Pengembangan}{32}{subsection.5.1.2}%
-\contentsline {section}{\numberline {V.2}Rencana Evaluasi}{33}{section.5.2}%
-\contentsline {subsection}{\numberline {V.2.1}Konfigurasi Sistem Pengujian}{33}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {V.2.2}Skenario Pengujian}{33}{subsection.5.2.2}%
-\contentsline {subsection}{\numberline {V.2.3}Metrik Evaluasi}{34}{subsection.5.2.3}%
-\contentsline {section}{\numberline {V.3}Analisis Risiko}{34}{section.5.3}%
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
+\contentsline {section}{\numberline {III.2}Metodologi Penelitian (Design Research Methodology DRM)}{18}{section.3.2}%
+\contentsline {section}{\numberline {III.3}Persyaratan Fungsional dan Non-Fungsional}{20}{section.3.3}%
+\contentsline {section}{\numberline {III.4}Desain Keputusan dan Solusi yang Diusulkan}{23}{section.3.4}%
+\contentsline {subsection}{\numberline {III.4.1}Alternatif Solusi}{23}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {III.4.2}Analisis Penelitian Solusi}{24}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {III.4.3}Metodologi Penilaian Solusi (Multi-Criteria Decision Analysis)}{25}{subsection.3.4.3}%
+\contentsline {paragraph}{\numberline {III.4.3.0.1}Langkah 1: Normalisasi Matriks Keputusan}{25}{paragraph.3.4.3.0.1}%
+\contentsline {paragraph}{\numberline {III.4.3.0.2}Langkah 2: Perhitungan Nilai Entropi}{25}{paragraph.3.4.3.0.2}%
+\contentsline {paragraph}{\numberline {III.4.3.0.3}Langkah 3: Penentuan Bobot Kriteria}{25}{paragraph.3.4.3.0.3}%
+\contentsline {paragraph}{\numberline {III.4.3.0.4}Langkah 4: Perhitungan Skor Komposit Akhir}{26}{paragraph.3.4.3.0.4}%
+\contentsline {subsection}{\numberline {III.4.4}Hasil Analisis Penentuan Solusi}{26}{subsection.3.4.4}%
+\contentsline {chapter}{\numberline {IV}DESAIN KONSEP SOLUSI}{28}{chapter.4}%
+\contentsline {section}{\numberline {IV.1}Desain Solusi}{28}{section.4.1}%
+\contentsline {section}{\numberline {IV.2}Tahapan Desain}{28}{section.4.2}%
+\contentsline {subsection}{\numberline {IV.2.1}Desain Artefak \textit {Dropper}}{29}{subsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {IV.2.1.1}Arsitektur Modul dan Fungsi \textit {Evasion}}{29}{subsubsection.4.2.1.1}%
+\contentsline {subsubsection}{\numberline {IV.2.1.2}Mekanisme Alur Logika \textit {Dropper}}{30}{subsubsection.4.2.1.2}%
+\contentsline {section}{\numberline {IV.3}Rancangan Lingkungan Pengujian}{31}{section.4.3}%
+\contentsline {section}{\numberline {IV.4}Spesifikasi Mesin Uji}{31}{section.4.4}%
+\contentsline {section}{\numberline {IV.5}Hasil Desain}{32}{section.4.5}%
+\contentsline {subsection}{\numberline {IV.5.1}Tahap Inisialisasi dan Dekripsi (Proses 2.1 \& 2.2)}{33}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {IV.5.2}Tahap Validasi Lingkungan / \textit {Anti-Analysis} (Proses 2.3)}{33}{subsection.4.5.2}%
+\contentsline {subsection}{\numberline {IV.5.3}Tahap Manajemen \textit {Payload} (Proses 2.4 \& 2.5)}{34}{subsection.4.5.3}%
+\contentsline {subsection}{\numberline {IV.5.4}Tahap Eksekusi \textit {Fileless} (Proses 2.6 \& 2.7)}{34}{subsection.4.5.4}%
+\contentsline {chapter}{\numberline {V}RENCANA SELANJUTNYA}{35}{chapter.5}%
+\contentsline {section}{\numberline {V.1}Rencana Implementasi}{35}{section.5.1}%
+\contentsline {subsection}{\numberline {V.1.1}Pengembangan Komponen \textit {Dropper}}{35}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {V.1.2}Lingkungan Pengembangan}{36}{subsection.5.1.2}%
+\contentsline {section}{\numberline {V.2}Rencana Evaluasi}{37}{section.5.2}%
+\contentsline {subsection}{\numberline {V.2.1}Konfigurasi Sistem Pengujian}{37}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {V.2.2}Skenario Pengujian}{37}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {V.2.3}Metrik Evaluasi}{38}{subsection.5.2.3}%
+\contentsline {section}{\numberline {V.3}Analisis Risiko}{38}{section.5.3}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
