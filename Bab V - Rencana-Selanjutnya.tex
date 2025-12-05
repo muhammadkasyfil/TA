@@ -32,13 +32,13 @@ Tabel berikut merangkum timeline implementasi secara ringkas (estimasi berbasis 
   3 & Modul Environment Checker & Implementasi anti-VM, anti-sandbox, anti-debug (CPUID, registry, process scan) & 3 minggu \\
   4 & Modul Fileless Loader \& Injection & Implementasi in-memory execution, process injection, uji di VM bersih & 4 minggu \\
   5 & Integrasi C2 Dummy \& Logging & Kanal C2 sederhana untuk verifikasi payload aktif, logging minimal & 2 minggu \\
-  6 & Integrasi, hardening, dan uji internal & Penggabungan seluruh modul, optimasi, smoke test multi-VM & 2--3 minggu \\
+  6 & Integrasi, hardening, dan uji internal & Penggabungan seluruh modul, optimasi, smoke test multi-VM & 2-3 minggu \\
 \end{longtable}
 \par}
 
 \FloatBarrier
 
-Perkiraan total durasi implementasi adalah sekitar 16--17 minggu, termasuk buffer untuk bug fixing ringan dan penyesuaian teknis.
+Perkiraan total durasi implementasi adalah sekitar 16-17 minggu, termasuk buffer untuk bug fixing ringan dan penyesuaian teknis.
 
 \subsection{Alat yang Dibutuhkan}
 Alat dan bahan yang dibutuhkan mencakup perangkat pengembangan, lingkungan virtual untuk pengujian aman, serta perangkat lunak pendukung analisis.
@@ -64,7 +64,7 @@ Alat dan bahan yang dibutuhkan mencakup perangkat pengembangan, lingkungan virtu
   Bahasa \& toolchain & Rust (rustup, cargo, rust-analyzer) & Implementasi dropper dan modul pendukung \\
   Library utama & winapi, aes-gcm, sha2, sysinfo & Akses WinAPI, enkripsi, hashing, profiling lingkungan \\
   OS target & Windows 10/11 Pro (VM) & Lingkungan uji dropper dan anti-malware \\
-  Anti-malware/EDR & Windows Defender, serta 2--3 produk komersial lain (mis. produk A, B, C) & Objek evaluasi kapabilitas deteksi \\
+  Anti-malware/EDR & Windows Defender, serta 2-3 produk komersial lain & Objek evaluasi kapabilitas deteksi \\
   Tool analisis & Sysmon, Procmon, Wireshark, x64dbg/WinDbg & Observasi perilaku, logging, dan debugging eksekusi \\
 \end{longtable}
 \par}
@@ -128,9 +128,9 @@ Kriteria keberhasilan dirumuskan berdasarkan CTQ yang telah didefinisikan di Bab
   \bottomrule
   \endlastfoot
 
-  1 & CTQ-01 -- Payload concealment & Payload terenkripsi tidak terdeteksi pada fase pemindaian statis di mayoritas engine & Detection rate statis $\leq 30\%$ \\
-  2 & CTQ-02 -- Signature evasion & Biner dropper lolos dari signature-based detection pada beberapa produk utama & Minimal 75\% produk komersial tidak mendeteksi pada eksekusi awal \\
-  3 & CTQ-03 -- Environment \& behavioral stealth & Mekanisme anti-VM/anti-debug mencegah eksekusi penuh di VM analisis, serta eksekusi di VM bersih tidak langsung memicu alert perilaku & $> 80\%$ run di VM analisis berhenti sebelum payload aktif, dan minimal satu produk terlambat mendeteksi pada VM bersih \\
+  1 & CTQ-01 - Payload concealment & Payload terenkripsi tidak terdeteksi pada fase pemindaian statis di mayoritas engine & Detection rate statis $\leq 30\%$ \\
+  2 & CTQ-02 - Signature evasion & Biner dropper lolos dari signature-based detection pada beberapa produk utama & Minimal 75\% produk komersial tidak mendeteksi pada eksekusi awal \\
+  3 & CTQ-03 - Environment \& behavioral stealth & Mekanisme anti-VM/anti-debug mencegah eksekusi penuh di VM analisis, serta eksekusi di VM bersih tidak langsung memicu alert perilaku & $> 80\%$ run di VM analisis berhenti sebelum payload aktif, dan minimal satu produk terlambat mendeteksi pada VM bersih \\
   4 & Stabilitas eksekusi & Dropper berhasil mengeksekusi payload tanpa crash pada VM bersih & Keberhasilan eksekusi $\geq 95\%$ dari total percobaan \\
   5 & Minimnya artefak forensik & Tidak ada file permanen atau entri registry baru terkait dropper setelah eksekusi & Tidak ditemukan artefak disk yang persisten pada inspeksi manual \\
 \end{longtable}
@@ -159,7 +159,7 @@ Analisis risiko disusun secara ringkas untuk mengidentifikasi hambatan utama sel
   \bottomrule
   \endlastfoot
 
-  1 & Implementasi fileless injection lebih sulit dari perkiraan & Timeline pengembangan mundur, beberapa FR tidak tercapai & Memulai lebih awal pada modul loader, membatasi teknik injection ke 1--2 metode yang paling stabil, dan menyiapkan fallback berupa eksekusi semi-fileless jika perlu \\
+  1 & Implementasi fileless injection lebih sulit dari perkiraan & Timeline pengembangan mundur, beberapa FR tidak tercapai & Memulai lebih awal pada modul loader, membatasi teknik injection ke 1-2 metode yang paling stabil, dan menyiapkan fallback berupa eksekusi semi-fileless jika perlu \\
   2 & Deteksi anti-malware terlalu tinggi sehingga tidak merepresentasikan dropper stealth & Evaluasi tidak menggambarkan gap deteksi yang realistis & Iteratif menyesuaikan konfigurasi enkripsi, packing, dan anti-analysis sampai biner mencapai profil deteksi yang seimbang namun tetap aman didokumentasikan \\
   3 & Lab tidak sepenuhnya terisolasi & Potensi gangguan ke jaringan luar, risiko etis & Menggunakan jaringan host-only/NAT tertutup, memblokir akses internet dari VM, dan menggunakan C2 dummy lokal saja \\
   4 & Keterbatasan waktu dibanding kompleksitas eksperimen & Beberapa skenario uji tidak sempat dijalankan & Memprioritaskan produk anti-malware yang paling relevan, menyusun jadwal pengujian terstruktur, dan menyimpan skenario tambahan sebagai pekerjaan lanjutan \\

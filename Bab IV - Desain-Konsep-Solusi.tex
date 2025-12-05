@@ -66,11 +66,10 @@ Pada tahap inisialisasi, \textit{dropper} melakukan \textit{internal integrity c
 \subsection{Desain Anti-Analysis (Environment Checking)}
 Modul \textit{environment checker} melakukan \textit{systematic enumeration} dari karakteristik sistem untuk mengidentifikasi kehadiran \textit{analysis environments}. Enumeration mencakup beberapa teknik berikut.
 \begin{itemize}
-  \item \textbf{CPUID-based hypervisor detection} menggunakan instruksi \texttt{CPUID} \textit{leaf} \texttt{0x40000000} untuk mengidentifikasi signature hypervisor.
-  \item \textbf{Registry scanning} memeriksa \textit{registry} untuk \textit{artifacts} khas dari VM software seperti VirtualBox, VMware, atau QEMU di jalur \textit{registry} seperti \texttt{HKLM\textbackslash SYSTEM\textbackslash CurrentControlSet\textbackslash Services} dan \texttt{HKLM\textbackslash HARDWARE\textbackslash DESCRIPTION\textbackslash System}.
-  \item \textbf{Process enumeration} melakukan enumerasi terhadap \textit{running processes} untuk menemukan \textit{process names} khas dari \textit{analysis tools} populer seperti \texttt{procmon.exe}, \texttt{wireshark.exe}, \texttt{IDA.exe}, atau \texttt{x64dbg.exe}.
-  \item \textbf{DLL inspection} memeriksa \textit{loaded DLLs} dalam \textit{current process} untuk menemukan \textit{monitoring} atau \textit{analysis DLLs} yang dapat mengindikasikan \textit{instrumentation tools}.
-  \item \textbf{Anti-debugging checks} melakukan pemeriksaan terhadap PEB (\textit{Process Environment Block}) flags yang mengindikasikan \textit{debugger attachment}, serta \textit{checks} untuk memastikan tidak ada \textit{kernel debugger} yang \textit{active}.
+  \item CPUID-based hypervisor detection
+  \item Registry scanning
+  \item DLL inspection
+  \item Anti-debugging checks
 \end{itemize}
 Jika salah satu \textit{check} positif mendeteksi indikasi \textit{analysis environment}, \textit{dropper} memberikan \textit{signal} kepada tahap berikutnya untuk melakukan \textit{controlled exit} tanpa \textit{executing payload}. \textit{Controlled exit} ini dirancang untuk tidak meninggalkan \textit{error logs} atau \textit{crash dumps} yang dapat menjadi bukti kehadiran \textit{dropper}.
 
@@ -79,7 +78,7 @@ Modul \textit{Loader \& In-Memory Executor} mengandung \textit{logic} untuk dekr
 
 Dekripsi dilakukan menggunakan \textit{standard AES-256-CBC implementation} dengan IV yang juga di-\textit{derive} dari sistem characteristics. Setelah dekripsi, modul melakukan \textit{integrity checking} terhadap \textit{payload} menggunakan \textit{HMAC-SHA256} untuk memastikan \textit{payload} tidak \textit{corrupt} atau ter-\textit{modified}. Jika \textit{integrity check} gagal, modul melakukan \textit{cleanup} dan \textit{termination}.
 
-Setelah dekripsi sukses, \textit{payload} disimpan di memori yang dialokasikan secara dinamis menggunakan \texttt{VirtualAlloc} dengan \textit{protections} yang appropriate (\texttt{PAGE\_EXECUTE\_READWRITE} untuk sections yang perlu \textit{execution}). \textit{Allocation} ini dilakukan tanpa menciptakan file di disk atau \textit{registry entries} yang dapat menjadi \textit{forensic artifacts}. Setelah \textit{memory allocation}, \textit{payload} dieksekusi menggunakan teknik \textit{process injection} ke proses \textit{legitimate} yang already running di sistem, seperti \texttt{explorer.exe} atau \texttt{svchost.exe}. Teknik \textit{injection} yang dapat digunakan meliputi \texttt{CreateRemoteThread} dengan \textit{shellcode injection}, \textit{APC injection} dengan \textit{queueing} \textit{user-mode APC} ke target thread, atau \textit{reflective DLL loading} di mana DLL di-\textit{load} langsung ke memori tanpa \textit{registry entries}.
+Setelah dekripsi sukses, \textit{payload} disimpan di memori yang dialokasikan secara dinamis menggunakan \texttt{VirtualAlloc} dengan \textit{protections} yang appropriate untuk sections yang perlu \textit{execution}). \textit{Allocation} ini dilakukan tanpa menciptakan file di disk atau \textit{registry entries} yang dapat menjadi \textit{forensic artifacts}. Setelah \textit{memory allocation}, \textit{payload} dieksekusi menggunakan teknik \textit{process injection} ke proses \textit{legitimate} yang already running di sistem. Teknik \textit{injection} yang dapat digunakan meliputi \texttt{CreateRemoteThread} dengan \textit{shellcode injection}, \textit{APC injection} dengan \textit{queueing} \textit{user-mode APC} ke target thread, atau \textit{reflective DLL loading} di mana DLL di-\textit{load} langsung ke memori tanpa \textit{registry entries}.
 
 \subsection{Desain Komponen Modul Dropper}
 Integrasi dari semua modul dirancang untuk menciptakan alur eksekusi yang kohesif dan \textit{seamless}. Tabel~\ref{tab:komponen-dropper} merangkum komponen-komponen modul utama dan fungsinya.
