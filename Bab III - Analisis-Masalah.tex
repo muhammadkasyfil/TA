@@ -24,21 +24,27 @@ Sistem pertahanan keamanan siber menghadapi beberapa masalah kritis yang membuat
 Berdasarkan keterbatasan deteksi yang telah diidentifikasi, analisis kesenjangan berikut menyoroti bahwa artefak penelitian yang ada belum secara memadai mencakup \textit{dropper} yang mengintegrasikan teknik-teknik \textit{evasive} modern dan tidak konvensional secara simultan. Tabel \ref{tab:gap-analysis} merangkum hubungan antara celah deteksi saat ini dan arah solusi yang diusulkan dalam penelitian ini.
 
 \renewcommand{\arraystretch}{1.15}
-\begin{table}[H]
-  \centering
-  \caption{Ringkasan kesenjangan desain \textit{dropper} dan arah solusi\label{tab:gap-analysis}}
-  \begin{tabular}{p{2.7cm}p{3.2cm}p{3.2cm}p{4.1cm}}
-    \toprule
-    \textbf{Kesenjangan (Gap)} & \textbf{Kondisi Saat Ini} & \textbf{Celah Deteksi} & \textbf{Arah Solusi Penelitian Ini} \\
-    \midrule
-    Bahasa pemrograman & Penelitian terbatas pada C/C++ atau \textit{Python}/\textit{PowerShell} yang \textit{signature}-nya sudah familiar bagi mesin deteksi & \textit{Signature resistance} yang rendah, mudah diidentifikasi oleh \textit{static analysis} & Menggunakan Rust untuk \textit{dropper} utama; biner Rust memiliki resistensi inheren terhadap \textit{reverse engineering} dan melewati \textit{signature} yang kurang \textit{tuned} \\
-    Operasi \textit{in-memory} dan non-\textit{persistence} & Deteksi EDR sering berfokus pada artefak disk serta \textit{persistence} seperti \textit{registry} atau \textit{startup} entry & Fokus deteksi pada \textit{disk artifacts} membuat \textit{fileless malware} lolos; \textit{non-persistent dropper} tidak meninggalkan jejak \textit{persistence} & Menerapkan eksekusi \textit{fileless} penuh \textit{in-memory payload delivery}, menghilangkan artefak disk dan melakukan \textit{self-terminate} untuk meminimalkan \textit{forensic footprint} \\
-    Anti-analisis terintegrasi & \textit{Sandbox} publik kerap gagal mendeteksi \textit{malware} yang menunda eksekusi atau memeriksa artefak sistem & \textit{Anti-VM}, \textit{anti-debug}, \textit{environment checking} belum dievaluasi secara terintegrasi dalam satu \textit{dropper} & Mengintegrasikan \textit{anti-VM} (pemeriksaan \textit{driver} atau \textit{registry}), \textit{anti-debugging} (pemeriksaan \textit{PEB flag}), dan \textit{sandbox evasion} \\
-    Integrasi \textit{multiple evasion techniques} & Penelitian sebelumnya mengevaluasi teknik \textit{evasion} secara individual atau pasangan dua & Tidak ada evaluasi holistik terhadap \textit{dropper} dengan 5+ teknik \textit{evasion} terintegrasi & Mengembangkan \textit{dropper} dengan minimal 5 teknik \textit{evasion} terintegrasi: enkripsi, \textit{packing}, \textit{anti-VM}, \textit{anti-debug}, \textit{fileless execution} \\
-    Evaluasi komparatif sistematis & Evaluasi \textit{anti-malware}/EDR belum spesifik terhadap \textit{dropper} sebagai \textit{initial access vector} & Fokus evaluasi pada \textit{malware} pasca-infeksi, bukan pada fase \textit{critical delivery} & Melakukan pengujian komparatif terhadap 6+ produk \textit{anti-spyware}/EDR untuk mengidentifikasi perbedaan \textit{detection rate} per tahap eksekusi \textit{dropper} \\
-    \bottomrule
-  \end{tabular}
-\end{table}
+\begin{longtable}{p{2.7cm}p{3.2cm}p{3.2cm}p{4.1cm}}
+  \caption{Ringkasan kesenjangan desain \textit{dropper} dan arah solusi\label{tab:gap-analysis}}\\
+  \toprule
+  \textbf{Kesenjangan (Gap)} & \textbf{Kondisi Saat Ini} & \textbf{Celah Deteksi} & \textbf{Arah Solusi Penelitian Ini} \\
+  \midrule
+  \endfirsthead
+  \toprule
+  \textbf{Kesenjangan (Gap)} & \textbf{Kondisi Saat Ini} & \textbf{Celah Deteksi} & \textbf{Arah Solusi Penelitian Ini} \\
+  \midrule
+  \endhead
+  \midrule
+  \multicolumn{4}{r}{\textit{bersambung}} \\
+  \endfoot
+  \bottomrule
+  \endlastfoot
+  Bahasa pemrograman & Penelitian terbatas pada C/C++ atau \textit{Python}/\textit{PowerShell} yang \textit{signature}-nya sudah familiar bagi mesin deteksi & \textit{Signature resistance} yang rendah, mudah diidentifikasi oleh \textit{static analysis} & Menggunakan Rust untuk \textit{dropper} utama; biner Rust memiliki resistensi inheren terhadap \textit{reverse engineering} dan melewati \textit{signature} yang kurang \textit{tuned} \\
+  Operasi \textit{in-memory} dan non-\textit{persistence} & Deteksi EDR sering berfokus pada artefak disk serta \textit{persistence} seperti \textit{registry} atau \textit{startup} entry & Fokus deteksi pada \textit{disk artifacts} membuat \textit{fileless malware} lolos; \textit{non-persistent dropper} tidak meninggalkan jejak \textit{persistence} & Menerapkan eksekusi \textit{fileless} penuh \textit{in-memory payload delivery}, menghilangkan artefak disk dan melakukan \textit{self-terminate} untuk meminimalkan \textit{forensic footprint} \\
+  Anti-analisis terintegrasi & \textit{Sandbox} publik kerap gagal mendeteksi \textit{malware} yang menunda eksekusi atau memeriksa artefak sistem & \textit{Anti-VM}, \textit{anti-debug}, \textit{environment checking} belum dievaluasi secara terintegrasi dalam satu \textit{dropper} & Mengintegrasikan \textit{anti-VM} (pemeriksaan \textit{driver} atau \textit{registry}), \textit{anti-debugging} (pemeriksaan \textit{PEB flag}), dan \textit{sandbox evasion} \\
+  Integrasi \textit{multiple evasion techniques} & Penelitian sebelumnya mengevaluasi teknik \textit{evasion} secara individual atau pasangan dua & Tidak ada evaluasi holistik terhadap \textit{dropper} dengan 5+ teknik \textit{evasion} terintegrasi & Mengembangkan \textit{dropper} dengan minimal 5 teknik \textit{evasion} terintegrasi: enkripsi, \textit{packing}, \textit{anti-VM}, \textit{anti-debug}, \textit{fileless execution} \\
+  Evaluasi komparatif sistematis & Evaluasi \textit{anti-malware}/EDR belum spesifik terhadap \textit{dropper} sebagai \textit{initial access vector} & Fokus evaluasi pada \textit{malware} pasca-infeksi, bukan pada fase \textit{critical delivery} & Melakukan pengujian komparatif terhadap 6+ produk \textit{anti-spyware}/EDR untuk mengidentifikasi perbedaan \textit{detection rate} per tahap eksekusi \textit{dropper} \\
+\end{longtable}
 
 Kesenjangan-kesenjangan yang telah diidentifikasi menghasilkan beberapa implikasi kritis bagi keamanan siber:
 \begin{itemize}
@@ -47,56 +53,68 @@ Kesenjangan-kesenjangan yang telah diidentifikasi menghasilkan beberapa implikas
   \item \textbf{Validitas pengujian yang tertanya:} pengujian \textit{anti-malware} menggunakan sampel \textit{malware} yang \textit{trivial} atau tidak realistis dapat memberikan hasil yang tidak akurat. Prototipe \textit{dropper} berbasis Rust dengan \textit{integrated evasion techniques} akan memberikan validitas pengujian yang lebih tinggi.
 \end{itemize}
 
-\section{Metodologi Penelitian (Design Research Methodology DRM)}
-Penelitian ini mengadopsi \textit{Design Research Methodology} (DRM) yang diperkenalkan oleh Blessing dan Chakrabarti sebagai kerangka kerja sistematis untuk merancang, mengembangkan, dan mengevaluasi artefak teknis dalam konteks penelitian desain yang kompleks. DRM dipilih karena menyajikan proses iteratif yang terstruktur untuk mengintegrasikan dasar teoretis yang kuat dengan relevansi praktis, memastikan bahwa prototipe \textit{dropper} yang dikembangkan tidak hanya memenuhi kebutuhan teknis tetapi juga menghasilkan kontribusi akademis yang signifikan.
-\begin{enumerate}
-  \item \textbf{Research Clarification (RC)}\\
-  Fase pertama adalah RC, yang berfokus pada identifikasi masalah utama dan penetapan tujuan penelitian yang jelas. Dalam konteks penelitian ini, RC mengidentifikasi kesenjangan signifikan antara teknik serangan \textit{dropper spyware} modern yang mengintegrasikan \textit{multiple evasion techniques} dan keterbatasan kemampuan deteksi solusi keamanan yang ada. Aktivitas pada fase RC mencakup studi literatur terhadap laporan industri keamanan siber terkini, publikasi akademis mengenai teknik evasi \textit{malware} terbaru, analisis studi kasus serangan \textit{dropper} nyata, serta konsultasi dengan praktisi keamanan siber untuk memvalidasi relevansi masalah. Hasil dari RC adalah rumusan masalah yang terdefinisi jelas, urgensi penelitian yang berdasarkan bukti mutakhir, identifikasi parameter kritis yang perlu dievaluasi, dan \textit{Initial Reference Model} yang menggambarkan kondisi eksisting sistem deteksi terhadap \textit{dropper stealth}.
-  \item \textbf{Descriptive Study I (DS-I)}\\
-  Fase kedua adalah DS-I, yang melakukan studi mendalam terhadap kondisi eksisting melalui analisis karakteristik \textit{dropper} modern dalam \textit{cyber kill chain}. Fokus utama DS-I ada pada analisis \textit{fileless payload delivery mechanisms} dan bagaimana \textit{dropper} memanfaatkan memori sistem untuk eksekusi tanpa \textit{disk footprint}, identifikasi pemeriksaan \textit{anti-analysis} seperti \textit{anti-VM detection}, \textit{anti-debugging}, dan \textit{sandbox evasion} serta mekanisme kerjanya, studi \textit{obfuscation} string dan komunikasi \textit{C2} terenkripsi, pemetaan metode distribusi \textit{dropper} seperti \textit{phishing} dan \textit{drive-by download}, serta rekonstruksi rantai serangan \textit{dropper} dari \textit{initial access} hingga \textit{command-and-control} dengan identifikasi tahap-tahap yang paling sulit dideteksi. DS-I menghasilkan \textit{Descriptive Model} yang komprehensif tentang teknik-teknik \textit{evasion} yang digunakan \textit{dropper} modern, persyaratan fungsional dan non-fungsional yang detail untuk fase \textit{design} berikutnya, serta pemahaman mendalam tentang celah-celah spesifik dalam kemampuan deteksi \textit{anti-malware} dan EDR terhadap setiap teknik \textit{evasion}.
-  \item \textbf{Prescriptive Study (PS)}\\
-  Fase ketiga adalah PS, merupakan tahap inti di mana solusi dirancang dan dikembangkan berdasarkan temuan DS-I. Pada tahap ini dilakukan perancangan arsitektur \textit{dropper spyware} mode \textit{stealth} yang mengintegrasikan \textit{multiple evasion techniques} secara kohesif, implementasi prototipe menggunakan bahasa Rust yang menyediakan kontrol \textit{low-level} untuk operasi \textit{fileless} sambil mempertahankan \textit{safety features} dan resistensi terhadap \textit{reverse engineering}, pengembangan modul-modul utama termasuk \textit{payload builder}, manajemen \textit{in-memory execution}, pemeriksaan \textit{anti-VM}/\textit{anti-debug}, kanal komunikasi \textit{C2} terenkripsi, dan modul \textit{spyware} aktif. Selama PS, setiap komponen diuji secara individual melalui \textit{unit testing} dan kemudian diintegrasikan untuk pengujian sistem secara menyeluruh melalui \textit{integration testing} dalam lingkungan \textit{sandbox} terkontrol sebelum memasuki fase evaluasi formal.
-  \item \textbf{Descriptive Study II (DS-II)}\\
-  Fase keempat dan terakhir adalah DS-II, merupakan fase evaluasi final yang menguji prototipe \textit{dropper} terhadap beberapa lingkungan uji dan produk \textit{anti-malware}/EDR komersial. Parameter evaluasi pada DS-II mencakup analisis tahap deteksi atau kelolosan aktivitas \textit{dropper} oleh berbagai \textit{anti-malware} pada setiap fase eksekusi, verifikasi keberhasilan \textit{payload delivery} di memori tanpa meninggalkan artefak disk, pengukuran efektivitas masing-masing teknik \textit{evasion} dalam menghindari deteksi, analisis performa dan latensi eksekusi, serta identifikasi pola perilaku \textit{dropper} yang terdeteksi versus yang terlewat. Data kuantitatif berupa \textit{detection rate} dan \textit{evasion rate} dibandingkan antar produk \textit{anti-malware} yang diuji, sementara data kualitatif seperti pola perilaku \textit{dropper} dan jejak forensik dianalisis untuk memahami penyebab lolosnya deteksi. Temuan DS-II menjadi dasar rekomendasi peningkatan mekanisme deteksi dan arah penelitian lanjutan.
-\end{enumerate}
+% \section{Metodologi Penelitian (Design Research Methodology DRM)}
+% Penelitian ini mengadopsi \textit{Design Research Methodology} (DRM) yang diperkenalkan oleh Blessing dan Chakrabarti sebagai kerangka kerja sistematis untuk merancang, mengembangkan, dan mengevaluasi artefak teknis dalam konteks penelitian desain yang kompleks. DRM dipilih karena menyajikan proses iteratif yang terstruktur untuk mengintegrasikan dasar teoretis yang kuat dengan relevansi praktis, memastikan bahwa prototipe \textit{dropper} yang dikembangkan tidak hanya memenuhi kebutuhan teknis tetapi juga menghasilkan kontribusi akademis yang signifikan.
+% \begin{enumerate}
+%   \item \textbf{Research Clarification (RC)}\\
+%   Fase pertama adalah RC, yang berfokus pada identifikasi masalah utama dan penetapan tujuan penelitian yang jelas. Dalam konteks penelitian ini, RC mengidentifikasi kesenjangan signifikan antara teknik serangan \textit{dropper spyware} modern yang mengintegrasikan \textit{multiple evasion techniques} dan keterbatasan kemampuan deteksi solusi keamanan yang ada. Aktivitas pada fase RC mencakup studi literatur terhadap laporan industri keamanan siber terkini, publikasi akademis mengenai teknik evasi \textit{malware} terbaru, analisis studi kasus serangan \textit{dropper} nyata, serta konsultasi dengan praktisi keamanan siber untuk memvalidasi relevansi masalah. Hasil dari RC adalah rumusan masalah yang terdefinisi jelas, urgensi penelitian yang berdasarkan bukti mutakhir, identifikasi parameter kritis yang perlu dievaluasi, dan \textit{Initial Reference Model} yang menggambarkan kondisi eksisting sistem deteksi terhadap \textit{dropper stealth}.
+%   \item \textbf{Descriptive Study I (DS-I)}\\
+%   Fase kedua adalah DS-I, yang melakukan studi mendalam terhadap kondisi eksisting melalui analisis karakteristik \textit{dropper} modern dalam \textit{cyber kill chain}. Fokus utama DS-I ada pada analisis \textit{fileless payload delivery mechanisms} dan bagaimana \textit{dropper} memanfaatkan memori sistem untuk eksekusi tanpa \textit{disk footprint}, identifikasi pemeriksaan \textit{anti-analysis} seperti \textit{anti-VM detection}, \textit{anti-debugging}, dan \textit{sandbox evasion} serta mekanisme kerjanya, studi \textit{obfuscation} string dan komunikasi \textit{C2} terenkripsi, pemetaan metode distribusi \textit{dropper} seperti \textit{phishing} dan \textit{drive-by download}, serta rekonstruksi rantai serangan \textit{dropper} dari \textit{initial access} hingga \textit{command-and-control} dengan identifikasi tahap-tahap yang paling sulit dideteksi. DS-I menghasilkan \textit{Descriptive Model} yang komprehensif tentang teknik-teknik \textit{evasion} yang digunakan \textit{dropper} modern, persyaratan fungsional dan non-fungsional yang detail untuk fase \textit{design} berikutnya, serta pemahaman mendalam tentang celah-celah spesifik dalam kemampuan deteksi \textit{anti-malware} dan EDR terhadap setiap teknik \textit{evasion}.
+%   \item \textbf{Prescriptive Study (PS)}\\
+%   Fase ketiga adalah PS, merupakan tahap inti di mana solusi dirancang dan dikembangkan berdasarkan temuan DS-I. Pada tahap ini dilakukan perancangan arsitektur \textit{dropper spyware} mode \textit{stealth} yang mengintegrasikan \textit{multiple evasion techniques} secara kohesif, implementasi prototipe menggunakan bahasa Rust yang menyediakan kontrol \textit{low-level} untuk operasi \textit{fileless} sambil mempertahankan \textit{safety features} dan resistensi terhadap \textit{reverse engineering}, pengembangan modul-modul utama termasuk \textit{payload builder}, manajemen \textit{in-memory execution}, pemeriksaan \textit{anti-VM}/\textit{anti-debug}, kanal komunikasi \textit{C2} terenkripsi, dan modul \textit{spyware} aktif. Selama PS, setiap komponen diuji secara individual melalui \textit{unit testing} dan kemudian diintegrasikan untuk pengujian sistem secara menyeluruh melalui \textit{integration testing} dalam lingkungan \textit{sandbox} terkontrol sebelum memasuki fase evaluasi formal.
+%   \item \textbf{Descriptive Study II (DS-II)}\\
+%   Fase keempat dan terakhir adalah DS-II, merupakan fase evaluasi final yang menguji prototipe \textit{dropper} terhadap beberapa lingkungan uji dan produk \textit{anti-malware}/EDR komersial. Parameter evaluasi pada DS-II mencakup analisis tahap deteksi atau kelolosan aktivitas \textit{dropper} oleh berbagai \textit{anti-malware} pada setiap fase eksekusi, verifikasi keberhasilan \textit{payload delivery} di memori tanpa meninggalkan artefak disk, pengukuran efektivitas masing-masing teknik \textit{evasion} dalam menghindari deteksi, analisis performa dan latensi eksekusi, serta identifikasi pola perilaku \textit{dropper} yang terdeteksi versus yang terlewat. Data kuantitatif berupa \textit{detection rate} dan \textit{evasion rate} dibandingkan antar produk \textit{anti-malware} yang diuji, sementara data kualitatif seperti pola perilaku \textit{dropper} dan jejak forensik dianalisis untuk memahami penyebab lolosnya deteksi. Temuan DS-II menjadi dasar rekomendasi peningkatan mekanisme deteksi dan arah penelitian lanjutan.
+% \end{enumerate}
 
 \section{Persyaratan Fungsional dan Non-Fungsional}
 Persyaratan fungsional dan non-fungsional diturunkan dari analisis kesenjangan yang telah dilakukan pada Bagian \ref{chap:analisis-masalah} dan berfungsi sebagai kriteria desain sekaligus evaluasi untuk memastikan prototipe \textit{dropper} memenuhi standar yang telah ditetapkan. Persyaratan-persyaratan ini mencerminkan kebutuhan teknis untuk menghadapi ancaman \textit{dropper spyware stealth} modern, sekaligus memastikan bahwa evaluasi yang dilakukan terhadap sistem \textit{anti-malware} dan EDR menggunakan \textit{baseline} yang realistis dan representatif.
 
 \renewcommand{\arraystretch}{1.2}
-\begin{table}[H]
-  \centering
-  \caption{Persyaratan fungsional (Functional Requirements)\label{tab:functional-req}}
-  \begin{tabular}{p{0.8cm}p{4.5cm}p{1.8cm}p{6.4cm}}
-    \toprule
-    \textbf{ID} & \textbf{Persyaratan Fungsional} & \textbf{Keterkaitan CTQ} & \textbf{Deskripsi} \\
-    \midrule
-    F1 & Eksekusi \textit{payload} \textit{in-memory} (\textit{fileless}) & CTQ-03 & \textit{Dropper} harus memuat dan mengeksekusi \textit{payload} berbahaya langsung di memori tanpa menulis berkas ke media penyimpanan, memastikan tidak ada \textit{disk artifacts} yang dapat dipindai \\
-    F2 & \textit{Self-removal} dan non-\textit{persistence} & CTQ-01, CTQ-03 & Setelah mengeksekusi \textit{payload}, \textit{dropper} harus \textit{self-terminate} dan tidak meninggalkan entri \textit{persistence} seperti \textit{registry keys} atau \textit{startup} folder, meminimalkan \textit{forensic footprint} \\
-    F3 & Enkripsi dan dekripsi \textit{payload} & CTQ-01, CTQ-02 & \textit{Dropper} membawa \textit{payload} dalam bentuk terenkripsi di dalam biner utama dan mendekripsinya saat \textit{runtime}, mencegah \textit{reverse engineering} dan deteksi \textit{signature} berbasis \textit{payload} \\
-    F4 & Pemeriksaan \textit{anti-VM}/\textit{sandbox} & CTQ-03 & \textit{Dropper} mampu mendeteksi lingkungan \textit{virtual machine} atau \textit{sandbox} sebelum mengeksekusi \textit{payload} melalui pemeriksaan \textit{driver} hypervisor, \textit{registry artifacts}, atau \textit{process names} khas virtualisasi \\
-    F5 & Pemeriksaan \textit{anti-debugging} & CTQ-03 & \textit{Dropper} mendeteksi upaya \textit{debugging} melalui pemeriksaan \textit{PEB flag}, penggunaan \textit{debugger tools}, atau \textit{breakpoints}, kemudian mengambil tindakan \textit{evasive} seperti keluar paksa atau mengubah alur eksekusi \\
-    F6 & Sinkronisasi eksekusi \textit{payload} & CTQ-03 & Menjamin \textit{payload} dieksekusi sukses melalui teknik-teknik seperti \textit{process injection}, \textit{remote thread creation}, atau \textit{reflective DLL loading}, dengan verifikasi bahwa \textit{payload} berjalan dengan benar di konteks \textit{target process} \\
-    \bottomrule
-  \end{tabular}
-\end{table}
+\begin{longtable}{p{0.8cm}p{4.5cm}p{1.8cm}p{6.4cm}}
+  \caption{Persyaratan fungsional (Functional Requirements)\label{tab:functional-req}}\\
+  \toprule
+  \textbf{ID} & \textbf{Persyaratan Fungsional} & \textbf{Keterkaitan CTQ} & \textbf{Deskripsi} \\
+  \midrule
+  \endfirsthead
+  \toprule
+  \textbf{ID} & \textbf{Persyaratan Fungsional} & \textbf{Keterkaitan CTQ} & \textbf{Deskripsi} \\
+  \midrule
+  \endhead
+  \midrule
+  \multicolumn{4}{r}{\textit{bersambung}} \\
+  \endfoot
+  \bottomrule
+  \endlastfoot
+  F1 & Eksekusi \textit{payload} \textit{in-memory} (\textit{fileless}) & CTQ-03 & \textit{Dropper} harus memuat dan mengeksekusi \textit{payload} berbahaya langsung di memori tanpa menulis berkas ke media penyimpanan, memastikan tidak ada \textit{disk artifacts} yang dapat dipindai \\
+  F2 & \textit{Self-removal} dan non-\textit{persistence} & CTQ-01, CTQ-03 & Setelah mengeksekusi \textit{payload}, \textit{dropper} harus \textit{self-terminate} dan tidak meninggalkan entri \textit{persistence} seperti \textit{registry keys} atau \textit{startup} folder, meminimalkan \textit{forensic footprint} \\
+  F3 & Enkripsi dan dekripsi \textit{payload} & CTQ-01, CTQ-02 & \textit{Dropper} membawa \textit{payload} dalam bentuk terenkripsi di dalam biner utama dan mendekripsinya saat \textit{runtime}, mencegah \textit{reverse engineering} dan deteksi \textit{signature} berbasis \textit{payload} \\
+  F4 & Pemeriksaan \textit{anti-VM}/\textit{sandbox} & CTQ-03 & \textit{Dropper} mampu mendeteksi lingkungan \textit{virtual machine} atau \textit{sandbox} sebelum mengeksekusi \textit{payload} melalui pemeriksaan \textit{driver} hypervisor, \textit{registry artifacts}, atau \textit{process names} khas virtualisasi \\
+  F5 & Pemeriksaan \textit{anti-debugging} & CTQ-03 & \textit{Dropper} mendeteksi upaya \textit{debugging} melalui pemeriksaan \textit{PEB flag}, penggunaan \textit{debugger tools}, atau \textit{breakpoints}, kemudian mengambil tindakan \textit{evasive} seperti keluar paksa atau mengubah alur eksekusi \\
+  F6 & Sinkronisasi eksekusi \textit{payload} & CTQ-03 & Menjamin \textit{payload} dieksekusi sukses melalui teknik-teknik seperti \textit{process injection}, \textit{remote thread creation}, atau \textit{reflective DLL loading}, dengan verifikasi bahwa \textit{payload} berjalan dengan benar di konteks \textit{target process} \\
+\end{longtable}
 
 Keenam persyaratan fungsional ini dirancang untuk memastikan bahwa \textit{dropper} prototipe mengintegrasikan teknik-teknik \textit{evasion} yang paling efektif dan sulit dideteksi. F1 dan F2 bersama-sama menciptakan profil \textit{dropper} yang \textit{stealthy} dengan tidak meninggalkan jejak permanen di sistem target. F3 mengatasi keterbatasan \textit{signature-based detection} dengan mengenkripsi \textit{payload}, sehingga setiap \textit{hash} akan berbeda meskipun \textit{payload} sebenarnya sama. F4 dan F5 memastikan \textit{dropper} hanya mengeksekusi dalam lingkungan yang sebenarnya (bukan \textit{sandbox} analisis), sedangkan F6 memvalidasi bahwa mekanisme \textit{delivery payload} benar-benar efektif.
 
-\begin{table}[H]
-  \centering
-  \caption{Persyaratan non-fungsional (Non-Functional Requirements)\label{tab:nonfunctional-req}}
-  \begin{tabular}{p{0.8cm}p{4.5cm}p{2.3cm}p{6.4cm}}
-    \toprule
-    \textbf{ID} & \textbf{Persyaratan Non-Fungsional} & \textbf{Aspek} & \textbf{Deskripsi} \\
-    \midrule
-    N1 & \textit{Stealth} dan \textit{evasiveness} & Keamanan & \textit{Dropper} harus memiliki resistensi tinggi terhadap analisis statis melalui penggunaan Rust dan enkripsi, serta deteksi perilaku melalui operasi \textit{fileless} dan \textit{in-memory execution}, dengan target minimum \textit{evasion rate} 70\% terhadap \textit{anti-malware} komersial \\
-    N2 & Efisiensi kinerja & Kinerja & \textit{Dropper} harus beroperasi cepat untuk menghindari deteksi anomali \textit{runtime}, dengan \textit{latency payload execution} kurang dari 5 detik \\
-    N3 & Keandalan eksekusi & Keandalan & \textit{Dropper} harus stabil ketika menjalankan operasi memori kritis, memanfaatkan keamanan memori Rust untuk mencegah \textit{crash} atau \textit{memory corruption} yang dapat mengungkap aktivitas berbahaya \\
-    N4 & Kompatibilitas platform & Kompatibilitas & \textit{Dropper} harus andal di sistem operasi Microsoft Windows versi 10 dan 11, memastikan evaluasi pada platform target yang relevan dengan mayoritas pengguna \textit{enterprise} \\
-    \bottomrule
-  \end{tabular}
-\end{table}
+\begin{longtable}{p{0.8cm}p{4.5cm}p{2.3cm}p{6.4cm}}
+  \caption{Persyaratan non-fungsional (Non-Functional Requirements)\label{tab:nonfunctional-req}}\\
+  \toprule
+  \textbf{ID} & \textbf{Persyaratan Non-Fungsional} & \textbf{Aspek} & \textbf{Deskripsi} \\
+  \midrule
+  \endfirsthead
+  \toprule
+  \textbf{ID} & \textbf{Persyaratan Non-Fungsional} & \textbf{Aspek} & \textbf{Deskripsi} \\
+  \midrule
+  \endhead
+  \midrule
+  \multicolumn{4}{r}{\textit{bersambung}} \\
+  \endfoot
+  \bottomrule
+  \endlastfoot
+  N1 & \textit{Stealth} dan \textit{evasiveness} & Keamanan & \textit{Dropper} harus memiliki resistensi tinggi terhadap analisis statis melalui penggunaan Rust dan enkripsi, serta deteksi perilaku melalui operasi \textit{fileless} dan \textit{in-memory execution}, dengan target minimum \textit{evasion rate} 70\% terhadap \textit{anti-malware} komersial \\
+  N2 & Efisiensi kinerja & Kinerja & \textit{Dropper} harus beroperasi cepat untuk menghindari deteksi anomali \textit{runtime}, dengan \textit{latency payload execution} kurang dari 5 detik \\
+  N3 & Keandalan eksekusi & Keandalan & \textit{Dropper} harus stabil ketika menjalankan operasi memori kritis, memanfaatkan keamanan memori Rust untuk mencegah \textit{crash} atau \textit{memory corruption} yang dapat mengungkap aktivitas berbahaya \\
+  N4 & Kompatibilitas platform & Kompatibilitas & \textit{Dropper} harus andal di sistem operasi Microsoft Windows versi 10 dan 11, memastikan evaluasi pada platform target yang relevan dengan mayoritas pengguna \textit{enterprise} \\
+\end{longtable}
 
 Persyaratan non-fungsional menentukan karakteristik kualitas \textit{dropper} yang membuatnya \textit{viable} dalam skenario serangan \textit{real-world}. N1 memastikan bahwa \textit{dropper} memiliki resistensi terhadap deteksi, N2 menekankan kinerja agar tidak memicu analisis perilaku, N3 mengurangi risiko \textit{crash} yang meninggalkan \textit{error logs}, dan N4 memastikan relevansi platform.
 
@@ -112,7 +130,7 @@ Berdasarkan persyaratan fungsional dan non-fungsional yang telah diidentifikasi,
 
 \section{Desain Keputusan dan Solusi yang Diusulkan}
 \subsection{Alternatif Solusi}
-Alternatif solusi untuk mengembangkan \textit{dropper spyware} mode \textit{stealth} dengan kemampuan \textit{evasion} tinggi mencakup beberapa pilihan bahasa pemrograman dan pendekatan teknis. Setiap alternatif memiliki \textit{trade-off} antara kontrol \textit{low-level}, resistensi terhadap \textit{reverse engineering}, performa, dan kemudahan implementasi. Tiga alternatif utama yang dipertimbangkan adalah: pertama, menggunakan C/C++ yang memberikan kontrol penuh terhadap memori dan API Windows tetapi rentan terhadap \textit{memory corruption} dan lebih mudah di-\textit{reverse engineer}; kedua, menggunakan Python dengan \textit{PyInstaller} yang relatif mudah dikembangkan namun \textit{signature}-nya sudah familiar bagi \textit{antivirus} dan kurang \textit{resistant} terhadap \textit{static analysis}; ketiga, menggunakan Rust yang menawarkan kombinasi unik antara kontrol \textit{low-level}, \textit{memory safety}, performa tinggi, dan resistensi inheren terhadap \textit{reverse engineering}.
+Alternatif solusi untuk mengembangkan \textit{dropper spyware} mode \textit{stealth} dengan kemampuan \textit{evasion} tinggi mencakup beberapa pilihan bahasa pemrograman dan pendekatan teknis. Setiap alternatif memiliki \textit{trade-off} antara kontrol \textit{low-level}, resistensi terhadap \textit{reverse engineering}, performa, dan kemudahan implementasi. Tiga alternatif utama yang dipertimbangkan adalah: Menggunakan C/C++ yang memberikan kontrol penuh terhadap memori dan API Windows tetapi rentan terhadap \textit{memory corruption} dan lebih mudah di-\textit{reverse engineer}. Lalu, menggunakan Python dengan \textit{PyInstaller} yang relatif mudah dikembangkan namun \textit{signature}-nya sudah familiar bagi \textit{antivirus} dan kurang \textit{resistant} terhadap \textit{static analysis}. Terakhir, menggunakan Rust yang menawarkan kombinasi unik antara kontrol \textit{low-level}, \textit{memory safety}, performa tinggi, dan resistensi inheren terhadap \textit{reverse engineering}.
 
 Analisis alternatif solusi tidak hanya melibatkan pertimbangan teknis tetapi juga evaluasi terhadap \textit{capability} setiap bahasa dalam mengimplementasikan persyaratan fungsional dan non-fungsional yang telah ditetapkan. Untuk setiap alternatif, dilakukan penilaian terhadap enam kriteria desain: dukungan enkripsi dan \textit{packing}, kontrol \textit{low-level} untuk \textit{fileless execution}, resistensi terhadap \textit{analisis statis}, kemudahan implementasi teknik \textit{anti-analysis}, performansi eksekusi, dan \textit{ecosystem tools/libraries} yang tersedia. Penilaian ini dilakukan secara sistematis menggunakan metodologi \textit{Multi-Criteria Decision Analysis} (MCDA) dengan \textit{Entropy Weight Method} (EWM) untuk menentukan bobot kriteria secara objektif.
 
@@ -170,41 +188,53 @@ Alternatif dengan skor tertinggi dipilih sebagai solusi yang paling optimal berd
 Perhitungan MCDA-EWM dilakukan terhadap matriks keputusan dengan enam kriteria desain dan tiga alternatif solusi. Kriteria yang dievaluasi adalah: KD-1 (Dukungan Enkripsi/\textit{Packing}), KD-2 (Kontrol \textit{Low-Level Fileless}), KD-3 (Resistensi Analisis Statis), KD-4 (Kemudahan Implementasi \textit{Anti-Analysis}), KD-5 (Performa Eksekusi), dan KD-6 (\textit{Ecosystem Tools/Libraries}). Hasil perhitungan entropi menunjukkan bahwa KD-2 memiliki entropi terendah dan derajat diversifikasi tertinggi, mengindikasikan bahwa kriteria ini paling efektif dalam membedakan ketiga alternatif. Tabel \ref{tab:bobot-ewm} merangkum hasil perhitungan bobot kriteria.
 
 \renewcommand{\arraystretch}{1.15}
-\begin{table}[H]
-  \centering
-  \caption{Bobot kriteria hasil metode EWM\label{tab:bobot-ewm}}
-  \begin{tabular}{p{1.4cm}p{6cm}ccc}
-    \toprule
-    \textbf{Kode Kriteria} & \textbf{Deskripsi Kriteria} & \textbf{$e_{j}$} & \textbf{$d_{j}$} & \textbf{$w_{j}$} \\
-    \midrule
-    KD-1 & Dukungan Enkripsi/\textit{Packing} & 0.993 & 0.007 & 0.057 \\
-    KD-2 & Kontrol \textit{Low-Level Fileless} & 0.923 & 0.077 & 0.631 \\
-    KD-3 & Resistensi Analisis Statis & 0.957 & 0.043 & 0.352 \\
-    KD-4 & Kemudahan Implementasi \textit{Anti-Analysis} & 0.989 & 0.011 & 0.090 \\
-    KD-5 & Performa Eksekusi & 0.994 & 0.006 & 0.049 \\
-    KD-6 & \textit{Ecosystem Tools/Libraries} & 0.998 & 0.002 & 0.016 \\
-    \midrule
-    \multicolumn{2}{r}{\textbf{Total}} &  & 0.146 & 1.000 \\
-    \bottomrule
-  \end{tabular}
-\end{table}
+\begin{longtable}{p{1.4cm}p{6cm}ccc}
+  \caption{Bobot kriteria hasil metode EWM\label{tab:bobot-ewm}}\\
+  \toprule
+  \textbf{Kode Kriteria} & \textbf{Deskripsi Kriteria} & \textbf{$e_{j}$} & \textbf{$d_{j}$} & \textbf{$w_{j}$} \\
+  \midrule
+  \endfirsthead
+  \toprule
+  \textbf{Kode Kriteria} & \textbf{Deskripsi Kriteria} & \textbf{$e_{j}$} & \textbf{$d_{j}$} & \textbf{$w_{j}$} \\
+  \midrule
+  \endhead
+  \midrule
+  \multicolumn{5}{r}{\textit{bersambung}} \\
+  \endfoot
+  \bottomrule
+  \endlastfoot
+  KD-1 & Dukungan Enkripsi/\textit{Packing} & 0.993 & 0.007 & 0.057 \\
+  KD-2 & Kontrol \textit{Low-Level Fileless} & 0.923 & 0.077 & 0.631 \\
+  KD-3 & Resistensi Analisis Statis & 0.957 & 0.043 & 0.352 \\
+  KD-4 & Kemudahan Implementasi \textit{Anti-Analysis} & 0.989 & 0.011 & 0.090 \\
+  KD-5 & Performa Eksekusi & 0.994 & 0.006 & 0.049 \\
+  KD-6 & \textit{Ecosystem Tools/Libraries} & 0.998 & 0.002 & 0.016 \\
+  \midrule
+  \multicolumn{2}{r}{\textbf{Total}} &  & 0.146 & 1.000 \\
+\end{longtable}
 
 Nilai bobot menunjukkan bahwa KD-2 memberikan kontribusi terbesar (63.1\%) terhadap pengambilan keputusan, diikuti oleh KD-3 (35.2\%), sedangkan kriteria lainnya memiliki kontribusi kecil.
 
 Skor komposit akhir untuk setiap alternatif disajikan pada Tabel \ref{tab:skor-akhir}. Rust memperoleh skor tertinggi (0.370), diikuti oleh C/C++ (0.334), dan Python (0.296). Rust unggul terutama pada KD-2 dan KD-3 karena kombinasi uniknya antara kontrol \textit{low-level} dan resistensi terhadap \textit{analisis statis}.
 
-\begin{table}[H]
-  \centering
-  \caption{Skor komposit akhir alternatif solusi\label{tab:skor-akhir}}
-  \begin{tabular}{p{3cm}c p{8cm}}
-    \toprule
-    \textbf{Alternatif Solusi} & \textbf{Skor Komposit ($S_{i}$)} & \textbf{Keterangan} \\
-    \midrule
-    Rust & 0.370 & Terpilih - unggul pada KD-2 (kontrol \textit{low-level}) dan KD-3 (resistensi statis) \\
-    C/C++ & 0.334 & Kuat pada KD-2 tetapi rentan pada KD-3 (lebih mudah di-\textit{reverse engineer}) \\
-    Python & 0.296 & Skor rendah pada KD-2 (kontrol terbatas) dan KD-3 (\textit{signature} sudah familiar) \\
-    \bottomrule
-  \end{tabular}
-\end{table}
+\begin{longtable}{p{3cm}c p{8cm}}
+  \caption{Skor komposit akhir alternatif solusi\label{tab:skor-akhir}}\\
+  \toprule
+  \textbf{Alternatif Solusi} & \textbf{Skor Komposit ($S_{i}$)} & \textbf{Keterangan} \\
+  \midrule
+  \endfirsthead
+  \toprule
+  \textbf{Alternatif Solusi} & \textbf{Skor Komposit ($S_{i}$)} & \textbf{Keterangan} \\
+  \midrule
+  \endhead
+  \midrule
+  \multicolumn{3}{r}{\textit{bersambung}} \\
+  \endfoot
+  \bottomrule
+  \endlastfoot
+  Rust & 0.370 & Terpilih - unggul pada KD-2 (kontrol \textit{low-level}) dan KD-3 (resistensi statis) \\
+  C/C++ & 0.334 & Kuat pada KD-2 tetapi rentan pada KD-3 (lebih mudah di-\textit{reverse engineer}) \\
+  Python & 0.296 & Skor rendah pada KD-2 (kontrol terbatas) dan KD-3 (\textit{signature} sudah familiar) \\
+\end{longtable}
 
 Berdasarkan hasil analisis MCDA-EWM, Rust dipilih sebagai bahasa implementasi untuk \textit{dropper spyware} mode \textit{stealth}. Keputusan ini didasarkan pada skor tertinggi yang diperoleh dan justifikasi kuat bahwa Rust secara efektif memadukan kontrol \textit{low-level} yang krusial untuk \textit{fileless execution} dengan resistensi inheren terhadap \textit{analisis statis} yang disasar oleh \textit{spyware} mode \textit{stealth} modern. Keputusan ini juga didukung oleh observasi industri bahwa \textit{threat actors} \textit{sophisticated} mulai mengadopsi Rust untuk pengembangan \textit{custom malware} dan \textit{reconnaissance tools}, menjadikan evaluasi \textit{dropper} berbasis Rust sangat relevan dan tepat waktu.

@@ -1,7 +1,6 @@
 \babel@toc {indonesian}{}\relax 
 \contentsline {chapter}{DAFTAR GAMBAR}{iv}{figure.caption.1}%
 \contentsline {chapter}{DAFTAR TABEL}{v}{figure.caption.1}%
-\contentsline {chapter}{\centering \normalsize DAFTAR KODE}{vi}{chapter*.2}%
 \contentsline {chapter}{\numberline {I}PENDAHULUAN}{1}{chapter.1}%
 \contentsline {section}{\numberline {I.1}Latar Belakang}{1}{section.1.1}%
 \babel@toc {english}{}\relax 
@@ -101,21 +100,34 @@
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {chapter}{\numberline {III}ANALISIS MASALAH}{15}{chapter.3}%
-\contentsline {section}{\numberline {III.1}Analisis Kondisi dan Kesenjangan (Current State and Gap Analysis)}{15}{section.3.1}%
-\contentsline {subsection}{\numberline {III.1.1}Keterbatasan Deteksi Konvensional}{15}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {III.1.2}Analisis Kesenjangan Desain \textit {Dropper} (Gap Analysis)}{16}{subsection.3.1.2}%
-\contentsline {section}{\numberline {III.2}Metodologi Penelitian (Design Research Methodology DRM)}{18}{section.3.2}%
-\contentsline {section}{\numberline {III.3}Persyaratan Fungsional dan Non-Fungsional}{20}{section.3.3}%
-\contentsline {section}{\numberline {III.4}Desain Keputusan dan Solusi yang Diusulkan}{23}{section.3.4}%
-\contentsline {subsection}{\numberline {III.4.1}Alternatif Solusi}{23}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {III.4.2}Analisis Penelitian Solusi}{24}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {III.4.3}Metodologi Penilaian Solusi (Multi-Criteria Decision Analysis)}{25}{subsection.3.4.3}%
-\contentsline {paragraph}{\numberline {III.4.3.0.1}Langkah 1: Normalisasi Matriks Keputusan}{25}{paragraph.3.4.3.0.1}%
-\contentsline {paragraph}{\numberline {III.4.3.0.2}Langkah 2: Perhitungan Nilai Entropi}{25}{paragraph.3.4.3.0.2}%
-\contentsline {paragraph}{\numberline {III.4.3.0.3}Langkah 3: Penentuan Bobot Kriteria}{25}{paragraph.3.4.3.0.3}%
-\contentsline {paragraph}{\numberline {III.4.3.0.4}Langkah 4: Perhitungan Skor Komposit Akhir}{26}{paragraph.3.4.3.0.4}%
-\contentsline {subsection}{\numberline {III.4.4}Hasil Analisis Penentuan Solusi}{26}{subsection.3.4.4}%
+\contentsline {section}{\numberline {II.7}Kasus Spyware Canggih dan Cyber Threat Intelligence (CTI)}{14}{section.2.7}%
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\contentsline {section}{\numberline {II.8}Rust dalam Malware Development dan Fileless Execution}{15}{section.2.8}%
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\contentsline {chapter}{\numberline {III}ANALISIS MASALAH}{16}{chapter.3}%
+\contentsline {section}{\numberline {III.1}Analisis Kondisi dan Kesenjangan (Current State and Gap Analysis)}{16}{section.3.1}%
+\contentsline {subsection}{\numberline {III.1.1}Keterbatasan Deteksi Konvensional}{16}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {III.1.2}Analisis Kesenjangan Desain \textit {Dropper} (Gap Analysis)}{17}{subsection.3.1.2}%
+\contentsline {section}{\numberline {III.2}Persyaratan Fungsional dan Non-Fungsional}{19}{section.3.2}%
+\contentsline {section}{\numberline {III.3}Desain Keputusan dan Solusi yang Diusulkan}{23}{section.3.3}%
+\contentsline {subsection}{\numberline {III.3.1}Alternatif Solusi}{23}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {III.3.2}Analisis Penelitian Solusi}{23}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {III.3.3}Metodologi Penilaian Solusi (Multi-Criteria Decision Analysis)}{24}{subsection.3.3.3}%
+\contentsline {paragraph}{\numberline {III.3.3.0.1}Langkah 1: Normalisasi Matriks Keputusan}{24}{paragraph.3.3.3.0.1}%
+\contentsline {paragraph}{\numberline {III.3.3.0.2}Langkah 2: Perhitungan Nilai Entropi}{25}{paragraph.3.3.3.0.2}%
+\contentsline {paragraph}{\numberline {III.3.3.0.3}Langkah 3: Penentuan Bobot Kriteria}{25}{paragraph.3.3.3.0.3}%
+\contentsline {paragraph}{\numberline {III.3.3.0.4}Langkah 4: Perhitungan Skor Komposit Akhir}{25}{paragraph.3.3.3.0.4}%
+\contentsline {subsection}{\numberline {III.3.4}Hasil Analisis Penentuan Solusi}{25}{subsection.3.3.4}%
 \contentsline {chapter}{\numberline {IV}DESAIN KONSEP SOLUSI}{28}{chapter.4}%
 \contentsline {section}{\numberline {IV.1}Diagram Konseptual Sistem}{28}{section.4.1}%
 \contentsline {subsection}{\numberline {IV.1.1}Sistem Sebelum (Before)}{28}{subsection.4.1.1}%
@@ -124,7 +136,7 @@
 \contentsline {section}{\numberline {IV.2}Penjelasan Desain Solusi}{32}{section.4.2}%
 \contentsline {subsection}{\numberline {IV.2.1}Desain Inisialisasi dan Verifikasi}{32}{subsection.4.2.1}%
 \contentsline {subsection}{\numberline {IV.2.2}Desain Anti-Analysis (Environment Checking)}{32}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {IV.2.3}Desain In-Memory Execution (Fileless Loading)}{33}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {IV.2.3}Desain In-Memory Execution (Fileless Loading)}{32}{subsection.4.2.3}%
 \contentsline {subsection}{\numberline {IV.2.4}Desain Komponen Modul Dropper}{33}{subsection.4.2.4}%
 \contentsline {section}{\numberline {IV.3}Rancangan Lingkungan Pengujian}{34}{section.4.3}%
 \contentsline {section}{\numberline {IV.4}Spesifikasi Mesin Uji}{35}{section.4.4}%
@@ -136,7 +148,11 @@
 \contentsline {subsection}{\numberline {V.2.1}Metode Pengujian}{40}{subsection.5.2.1}%
 \contentsline {subsection}{\numberline {V.2.2}Metrik Evaluasi}{40}{subsection.5.2.2}%
 \contentsline {subsection}{\numberline {V.2.3}Kriteria Keberhasilan}{41}{subsection.5.2.3}%
-\contentsline {section}{\numberline {V.3}Analisis Risiko}{43}{section.5.3}%
+\contentsline {section}{\numberline {V.3}Analisis Risiko}{42}{section.5.3}%
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 

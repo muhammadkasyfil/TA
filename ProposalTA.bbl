@@ -187,6 +187,30 @@
       \field{title}{A Comprehensive Analysis of Pegasus Spyware and Its Implications for Digital Privacy and Security}
       \field{year}{2024}
     \endentry
+    \entry{kerkour2021}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=0fa474a6b050cead169c5d8789340309}{%
+           family={Kerkour},
+           familyi={K\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{0fa474a6b050cead169c5d8789340309}
+      \strng{fullhash}{0fa474a6b050cead169c5d8789340309}
+      \strng{bibnamehash}{0fa474a6b050cead169c5d8789340309}
+      \strng{authorbibnamehash}{0fa474a6b050cead169c5d8789340309}
+      \strng{authornamehash}{0fa474a6b050cead169c5d8789340309}
+      \strng{authorfullhash}{0fa474a6b050cead169c5d8789340309}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Black Hat Rust: Applied Offensive Security with the Rust Programming Language}
+      \field{year}{2021}
+    \endentry
     \entry{koutsokostas2021}{article}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=8306afb82ad47e0b5cffd9b6f4185f52}{%
@@ -217,6 +241,50 @@
       \field{journaltitle}{arXiv preprint arXiv:2105.00565}
       \field{title}{Python and Malware: Developing Stealth and Evasive Malware Without Obfuscation}
       \field{year}{2021}
+    \endentry
+    \entry{noor2020}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=0bc31d41eed4ee33861c111e38be9e5e}{%
+           family={Noor},
+           familyi={N\bibinitperiod},
+           given={Umara},
+           giveni={U\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=25351d51be381cfc1cdedd02866ea671}{%
+           family={Anwar},
+           familyi={A\bibinitperiod},
+           given={Zahid},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=06c3b2fdc1be9dd03f56016be40f5e6b}{%
+           family={Altmann},
+           familyi={A\bibinitperiod},
+           given={Jorn},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=195d3aad35f9f67835d59b4be9ff5c6f}{%
+           family={Rashid},
+           familyi={R\bibinitperiod},
+           given={Zahid},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{9dee5906121788139946bd2d2bbe9c63}
+      \strng{fullhash}{d0fb964fa0d75b2b1271202f0256eb3f}
+      \strng{bibnamehash}{d0fb964fa0d75b2b1271202f0256eb3f}
+      \strng{authorbibnamehash}{d0fb964fa0d75b2b1271202f0256eb3f}
+      \strng{authornamehash}{9dee5906121788139946bd2d2bbe9c63}
+      \strng{authorfullhash}{d0fb964fa0d75b2b1271202f0256eb3f}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{Electronic Commerce Research and Applications}
+      \field{title}{Customer-oriented Ranking of Cyber Threat Intelligence Service Providers}
+      \field{volume}{41}
+      \field{year}{2020}
     \endentry
     \entry{reddyvari2024}{article}{}
       \name{author}{5}{}{%

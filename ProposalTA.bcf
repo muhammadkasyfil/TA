@@ -5010,6 +5010,12 @@
     <bcf:citekey order="32" intorder="2">koutsokostas2021</bcf:citekey>
     <bcf:citekey order="33" intorder="1">chatzoglou2023</bcf:citekey>
     <bcf:citekey order="33" intorder="2">elghaly2024</bcf:citekey>
+    <bcf:citekey order="34" intorder="1">kareem2024</bcf:citekey>
+    <bcf:citekey order="35" intorder="1">ainslie2023</bcf:citekey>
+    <bcf:citekey order="36" intorder="1">reddyvari2024</bcf:citekey>
+    <bcf:citekey order="37" intorder="1">noor2020</bcf:citekey>
+    <bcf:citekey order="38" intorder="1">kerkour2021</bcf:citekey>
+    <bcf:citekey order="39" intorder="1">sudhakar2020</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="cms">
